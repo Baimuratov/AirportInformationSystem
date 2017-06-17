@@ -33,7 +33,7 @@
             this._planeNameTextBox = new System.Windows.Forms.TextBox();
             this._departureMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this._arrivalMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this._embarkationsTextBox = new System.Windows.Forms.TextBox();
             this._destinationTextBox = new System.Windows.Forms.TextBox();
             this._ticketPriceTextBox = new System.Windows.Forms.TextBox();
             this._okButton = new System.Windows.Forms.Button();
@@ -82,13 +82,13 @@
             this._arrivalMaskedTextBox.TabIndex = 4;
             this._arrivalMaskedTextBox.ValidatingType = typeof(System.DateTime);
             // 
-            // textBox3
+            // _embarkationsTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(193, 125);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(150, 20);
-            this.textBox3.TabIndex = 5;
+            this._embarkationsTextBox.Location = new System.Drawing.Point(193, 125);
+            this._embarkationsTextBox.Multiline = true;
+            this._embarkationsTextBox.Name = "_embarkationsTextBox";
+            this._embarkationsTextBox.Size = new System.Drawing.Size(150, 20);
+            this._embarkationsTextBox.TabIndex = 5;
             // 
             // _destinationTextBox
             // 
@@ -106,13 +106,13 @@
             // 
             // _okButton
             // 
-            this._okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this._okButton.Location = new System.Drawing.Point(71, 225);
             this._okButton.Name = "_okButton";
             this._okButton.Size = new System.Drawing.Size(80, 25);
             this._okButton.TabIndex = 8;
             this._okButton.Text = "Ок";
             this._okButton.UseVisualStyleBackColor = true;
+            this._okButton.Click += new System.EventHandler(this._okButton_Click);
             // 
             // _cancelButton
             // 
@@ -135,15 +135,18 @@
             this.Controls.Add(this._okButton);
             this.Controls.Add(this._ticketPriceTextBox);
             this.Controls.Add(this._destinationTextBox);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this._embarkationsTextBox);
             this.Controls.Add(this._arrivalMaskedTextBox);
             this.Controls.Add(this._departureMaskedTextBox);
             this.Controls.Add(this._planeNameTextBox);
             this.Controls.Add(this._idTextBox);
             this.Controls.Add(this._flightAttributesLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "EditFlightForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditFlightForm";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -157,7 +160,7 @@
         private System.Windows.Forms.TextBox _planeNameTextBox;
         private System.Windows.Forms.MaskedTextBox _departureMaskedTextBox;
         private System.Windows.Forms.MaskedTextBox _arrivalMaskedTextBox;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox _embarkationsTextBox;
         private System.Windows.Forms.TextBox _destinationTextBox;
         private System.Windows.Forms.TextBox _ticketPriceTextBox;
         private System.Windows.Forms.Button _okButton;
