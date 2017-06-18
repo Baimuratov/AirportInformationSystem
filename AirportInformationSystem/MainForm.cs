@@ -19,26 +19,40 @@ namespace AirportInformationSystem
 
         private void авиарейсBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.авиарейсBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.airportDataBaseDataSet);
+            Validate();
+            авиарейсBindingSource.EndEdit();
+            tableAdapterManager.UpdateAll(airportDataBaseDataSet);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "airportDataBaseDataSet.Авиарейс". При необходимости она может быть перемещена или удалена.
-            this.авиарейсTableAdapter.Fill(this.airportDataBaseDataSet.Авиарейс);
+            авиарейсTableAdapter.Fill(airportDataBaseDataSet.Авиарейс);
         }
 
         private void addFlight()
         {
-            EditFlightForm addingFlightForm = new EditFlightForm();
-            addingFlightForm.ShowDialog();
+            EditFlightForm addFlightRowForm = new EditFlightForm(airportDataBaseDataSet.Авиарейс, airportDataBaseDataSet.Авиарейс.Count);
+            addFlightRowForm.ShowDialog();
+        }
+
+        private void changeFlight()
+        {
+            if (авиарейсDataGridView.CurrentCell != null)
+            {
+                EditFlightForm changeFlightForm = new EditFlightForm(airportDataBaseDataSet.Авиарейс, авиарейсDataGridView.CurrentCell.RowIndex);
+                changeFlightForm.ShowDialog();
+            }
         }
 
         private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             addFlight();
+        }
+
+        private void изменитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            changeFlight();
         }
     }
 }
