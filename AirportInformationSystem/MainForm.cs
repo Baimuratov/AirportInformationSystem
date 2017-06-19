@@ -45,6 +45,12 @@ namespace AirportInformationSystem
             }
         }
 
+        private void ShowAllPassengers()
+        {
+            PassengersForm passengers = new PassengersForm();
+            passengers.Show();
+        }
+
         private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             addFlight();
@@ -53,6 +59,22 @@ namespace AirportInformationSystem
         private void изменитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             changeFlight();
+        }
+
+        private void всеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowAllPassengers();
+        }
+
+        private void выбранногоРейсаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (авиарейсDataGridView.CurrentCell != null)
+            {
+                PassengersForm passengers = new PassengersForm();
+                string val = airportDataBaseDataSet.Авиарейс.Rows[авиарейсDataGridView.CurrentCell.RowIndex].Field<int>("Номер рейса").ToString();
+                passengers.пассажирBindingSource.Filter = "[Номер рейса] = " + val;
+                passengers.Show();
+            }
         }
     }
 }

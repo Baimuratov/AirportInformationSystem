@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this._flightAttributesLabel = new System.Windows.Forms.Label();
+            this._attributesLabel = new System.Windows.Forms.Label();
             this._idTextBox = new System.Windows.Forms.TextBox();
             this._planeNameTextBox = new System.Windows.Forms.TextBox();
             this._departureMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
@@ -40,14 +40,14 @@
             this._cancelButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // _flightAttributesLabel
+            // _attributesLabel
             // 
-            this._flightAttributesLabel.AutoSize = true;
-            this._flightAttributesLabel.Location = new System.Drawing.Point(12, 24);
-            this._flightAttributesLabel.Name = "_flightAttributesLabel";
-            this._flightAttributesLabel.Size = new System.Drawing.Size(139, 169);
-            this._flightAttributesLabel.TabIndex = 0;
-            this._flightAttributesLabel.Text = "Номер\r\n\r\nИдентификатор самолёта\r\n\r\nДата отправления\r\n\r\nДата прибытия\r\n\r\nПункты по" +
+            this._attributesLabel.AutoSize = true;
+            this._attributesLabel.Location = new System.Drawing.Point(12, 24);
+            this._attributesLabel.Name = "_attributesLabel";
+            this._attributesLabel.Size = new System.Drawing.Size(139, 169);
+            this._attributesLabel.TabIndex = 0;
+            this._attributesLabel.Text = "Номер\r\n\r\nИдентификатор самолёта\r\n\r\nДата отправления\r\n\r\nДата прибытия\r\n\r\nПункты по" +
     "садки\r\n\r\nПунк назначения\r\n\r\nСтоимость билета";
             // 
             // _idTextBox
@@ -56,6 +56,7 @@
             this._idTextBox.Name = "_idTextBox";
             this._idTextBox.Size = new System.Drawing.Size(150, 20);
             this._idTextBox.TabIndex = 1;
+            this._idTextBox.TextChanged += new System.EventHandler(this._idTextBox_TextChanged);
             // 
             // _planeNameTextBox
             // 
@@ -103,9 +104,11 @@
             this._ticketPriceTextBox.Name = "_ticketPriceTextBox";
             this._ticketPriceTextBox.Size = new System.Drawing.Size(150, 20);
             this._ticketPriceTextBox.TabIndex = 7;
+            this._ticketPriceTextBox.TextChanged += new System.EventHandler(this._ticketPriceTextBox_TextChanged);
             // 
             // _okButton
             // 
+            this._okButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this._okButton.Location = new System.Drawing.Point(71, 225);
             this._okButton.Name = "_okButton";
             this._okButton.Size = new System.Drawing.Size(80, 25);
@@ -116,6 +119,7 @@
             // 
             // _cancelButton
             // 
+            this._cancelButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this._cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this._cancelButton.Location = new System.Drawing.Point(214, 225);
             this._cancelButton.Name = "_cancelButton";
@@ -140,7 +144,7 @@
             this.Controls.Add(this._departureMaskedTextBox);
             this.Controls.Add(this._planeNameTextBox);
             this.Controls.Add(this._idTextBox);
-            this.Controls.Add(this._flightAttributesLabel);
+            this.Controls.Add(this._attributesLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -155,7 +159,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label _flightAttributesLabel;
+        private System.Windows.Forms.Label _attributesLabel;
         private System.Windows.Forms.TextBox _idTextBox;
         private System.Windows.Forms.TextBox _planeNameTextBox;
         private System.Windows.Forms.MaskedTextBox _departureMaskedTextBox;
