@@ -118,5 +118,11 @@ namespace AirportInformationSystem
         {
             deleteFlight();
         }
+
+        private void авиарейсToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            SearchForm flightSearch = new SearchForm(TableName.Flight);
+            flightSearch.ShowDialog();
+        }
     }
 }

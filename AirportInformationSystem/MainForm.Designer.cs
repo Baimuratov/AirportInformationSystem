@@ -64,6 +64,8 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.авиарейсBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.поискToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.авиарейсToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this._flightsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.авиарейсDataGridView)).BeginInit();
@@ -77,7 +79,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.авиарейсToolStripMenuItem,
-            this.пассажирыToolStripMenuItem});
+            this.пассажирыToolStripMenuItem,
+            this.поискToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(779, 24);
@@ -97,21 +100,21 @@
             // добавитьToolStripMenuItem
             // 
             this.добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
-            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.добавитьToolStripMenuItem.Text = "Добавить";
             this.добавитьToolStripMenuItem.Click += new System.EventHandler(this.добавитьToolStripMenuItem_Click);
             // 
             // изменитьToolStripMenuItem
             // 
             this.изменитьToolStripMenuItem.Name = "изменитьToolStripMenuItem";
-            this.изменитьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.изменитьToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.изменитьToolStripMenuItem.Text = "Изменить";
             this.изменитьToolStripMenuItem.Click += new System.EventHandler(this.изменитьToolStripMenuItem_Click);
             // 
             // удалитьToolStripMenuItem
             // 
             this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
-            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.удалитьToolStripMenuItem.Text = "Удалить";
             this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
             // 
@@ -375,6 +378,21 @@
             this.авиарейсBindingNavigatorSaveItem.Text = "Сохранить данные";
             this.авиарейсBindingNavigatorSaveItem.Click += new System.EventHandler(this.авиарейсBindingNavigatorSaveItem_Click);
             // 
+            // поискToolStripMenuItem
+            // 
+            this.поискToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.авиарейсToolStripMenuItem1});
+            this.поискToolStripMenuItem.Name = "поискToolStripMenuItem";
+            this.поискToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.поискToolStripMenuItem.Text = "Поиск";
+            // 
+            // авиарейсToolStripMenuItem1
+            // 
+            this.авиарейсToolStripMenuItem1.Name = "авиарейсToolStripMenuItem1";
+            this.авиарейсToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.авиарейсToolStripMenuItem1.Text = "Авиарейс";
+            this.авиарейсToolStripMenuItem1.Click += new System.EventHandler(this.авиарейсToolStripMenuItem1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -438,5 +456,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.ToolStripMenuItem поискToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem авиарейсToolStripMenuItem1;
     }
 }
