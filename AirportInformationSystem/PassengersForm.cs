@@ -46,5 +46,42 @@ namespace AirportInformationSystem
                 changePassenger.ShowDialog();
             }
         }
+
+        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (airportDataBaseDataSet.Пассажир.Count == 0 || пассажирDataGridView.SelectedCells.Count == 0)
+            {
+                return;
+            }
+            DataGridViewSelectedCellCollection cells = пассажирDataGridView.SelectedCells;
+            List<DataGridViewCell> newCells = new List<DataGridViewCell>();
+            newCells.Add(cells[0]);
+            // получение списка newCells, в котором все ячейки принадлежат разным строкам
+            bool unique;
+            for (int i = 1; i < cells.Count; i++)
+            {
+                // делаем предположение что cells[i] обладает индексом строки
+                // не встречающимся у ячеек newCells
+                unique = true;
+                for (int j = 0; j < newCells.Count; j++)
+                {
+                    if (newCells[j].RowIndex == cells[i].RowIndex)
+                    {
+                        unique = false;
+                        break;
+                    }
+                }
+                if (unique)
+                {
+                    newCells.Add(cells[i]);
+                }
+            }
+
+            foreach (DataGridViewCell cell in newCells)
+            {
+                DataRow row = airportDataBaseDataSet.Пассажир.Rows[cell.RowIndex];
+                airportDataBaseDataSet.Пассажир.RemoveПассажирRow((AirportDataBaseDataSet.ПассажирRow)row);
+            }
+        }
     }
 }

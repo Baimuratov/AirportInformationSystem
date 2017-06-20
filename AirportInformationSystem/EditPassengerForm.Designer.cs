@@ -162,6 +162,7 @@
             this.MinimizeBox = false;
             this.Name = "EditPassengerForm";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditPassengerForm";
             this.ResumeLayout(false);
             this.PerformLayout();

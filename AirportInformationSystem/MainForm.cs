@@ -45,6 +45,43 @@ namespace AirportInformationSystem
             }
         }
 
+        private void deleteFlight()
+        {
+            if (airportDataBaseDataSet.Авиарейс.Count == 0 || авиарейсDataGridView.SelectedCells.Count == 0)
+            {
+                return;
+            }
+            DataGridViewSelectedCellCollection cells = авиарейсDataGridView.SelectedCells;
+            List<DataGridViewCell> newCells = new List<DataGridViewCell>();
+            newCells.Add(cells[0]);
+            // получение списка newCells, в котором все ячейки принадлежат разным строкам
+            bool unique;
+            for (int i = 1; i < cells.Count; i++)
+            {
+                // делаем предположение что cells[i] обладает индексом строки
+                // не встречающимся у ячеек newCells
+                unique = true;
+                for (int j = 0; j < newCells.Count; j++)
+                {
+                    if (newCells[j].RowIndex == cells[i].RowIndex)
+                    {
+                        unique = false;
+                        break;
+                    }
+                }
+                if (unique)
+                {
+                    newCells.Add(cells[i]);
+                }
+            }
+
+            foreach (DataGridViewCell cell in newCells)
+            {
+                DataRow row = airportDataBaseDataSet.Авиарейс.Rows[cell.RowIndex];
+                airportDataBaseDataSet.Авиарейс.RemoveАвиарейсRow((AirportDataBaseDataSet.АвиарейсRow)row);
+            }
+        }
+
         private void ShowAllPassengers()
         {
             PassengersForm passengers = new PassengersForm();
@@ -75,6 +112,11 @@ namespace AirportInformationSystem
                 passengers.пассажирBindingSource.Filter = "[Номер рейса] = " + val;
                 passengers.Show();
             }
+        }
+
+        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            deleteFlight();
         }
     }
 }
