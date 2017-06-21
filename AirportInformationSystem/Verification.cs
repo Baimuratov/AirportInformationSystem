@@ -87,27 +87,6 @@ namespace AirportInformationSystem
             return true;
         }
 
-        public static bool CheckNotEmptyString(string verifiableText, ref object variable, int maxLength, string name)
-        {
-            if (verifiableText == string.Empty)
-            {
-                variable = null;
-                MessageBox.Show(string.Format("Поле {0} не должно быть пустым", name), "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                return false;
-            }
-            else
-            {
-                int difference = verifiableText.Length - maxLength;
-                if (difference > 0)
-                {
-                    MessageBox.Show(string.Format("{0} превышает допустимую длину на {1}", name, difference), "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    return false;
-                }
-                variable = verifiableText;
-            }
-            return true;
-        }
-
         public static bool CheckDate(string verifiableText, ref object variable, string name)
         {
             if (verifiableText == "  .  .       :")

@@ -109,7 +109,7 @@ namespace AirportInformationSystem
             {
                 PassengersForm passengers = new PassengersForm();
                 string val = airportDataBaseDataSet.Авиарейс.Rows[авиарейсDataGridView.CurrentCell.RowIndex].Field<int>("Номер рейса").ToString();
-                passengers.пассажирBindingSource.Filter = "[Номер рейса] = " + val;
+                passengers.SetFilter("[Номер рейса] = " + val);
                 passengers.Show();
             }
         }
@@ -122,7 +122,21 @@ namespace AirportInformationSystem
         private void авиарейсToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             SearchForm flightSearch = new SearchForm(TableName.Flight);
-            flightSearch.ShowDialog();
+            if (flightSearch.ShowDialog() == DialogResult.OK && flightSearch.Table == TableName.Flight)
+            {
+                авиарейсBindingSource.Filter = flightSearch.FilterExpression;
+            }
+        }
+
+        private void пассажирыToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            SearchForm flightSearch = new SearchForm(TableName.Passenger);
+            if (flightSearch.ShowDialog() == DialogResult.OK && flightSearch.Table == TableName.Flight)
+            {
+                PassengersForm passengers = new PassengersForm();
+                passengers.SetFilter(flightSearch.FilterExpression);
+                passengers.Show();
+            }
         }
     }
 }

@@ -71,6 +71,7 @@
             this._flightRadioButton.TabStop = true;
             this._flightRadioButton.Text = "Авиарейсы";
             this._flightRadioButton.UseVisualStyleBackColor = true;
+            this._flightRadioButton.CheckedChanged += new System.EventHandler(this._flightRadioButton_CheckedChanged);
             // 
             // _passengerRadioButton
             // 
@@ -82,6 +83,7 @@
             this._passengerRadioButton.TabStop = true;
             this._passengerRadioButton.Text = "Пассажиры";
             this._passengerRadioButton.UseVisualStyleBackColor = true;
+            this._passengerRadioButton.CheckedChanged += new System.EventHandler(this._passengerRadioButton_CheckedChanged);
             // 
             // _flightGroupBox
             // 
@@ -136,6 +138,7 @@
             this._ticketPriceTextBox.Name = "_ticketPriceTextBox";
             this._ticketPriceTextBox.Size = new System.Drawing.Size(150, 20);
             this._ticketPriceTextBox.TabIndex = 15;
+            this._ticketPriceTextBox.TextChanged += new System.EventHandler(this._ticketPriceTextBox_TextChanged);
             // 
             // _destinationTextBox
             // 
@@ -183,6 +186,7 @@
             this._idTextBox.Name = "_idTextBox";
             this._idTextBox.Size = new System.Drawing.Size(150, 20);
             this._idTextBox.TabIndex = 9;
+            this._idTextBox.TextChanged += new System.EventHandler(this._idTextBox_TextChanged);
             // 
             // label1
             // 
@@ -320,6 +324,7 @@
             this._flightIdTextBox.Name = "_flightIdTextBox";
             this._flightIdTextBox.Size = new System.Drawing.Size(150, 20);
             this._flightIdTextBox.TabIndex = 10;
+            this._flightIdTextBox.TextChanged += new System.EventHandler(this._flightIdTextBox_TextChanged);
             // 
             // label2
             // 
@@ -370,15 +375,16 @@
             this.Controls.Add(this._cancelButton);
             this.Controls.Add(this._findButton);
             this.Controls.Add(this._hintLabel);
-            this.Controls.Add(this._flightGroupBox);
             this.Controls.Add(this._passengerRadioButton);
             this.Controls.Add(this._flightRadioButton);
+            this.Controls.Add(this._flightGroupBox);
             this.Controls.Add(this._passengerGroupBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SearchForm";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SearchForm";
             this._flightGroupBox.ResumeLayout(false);
             this._flightGroupBox.PerformLayout();

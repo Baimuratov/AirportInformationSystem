@@ -17,6 +17,11 @@ namespace AirportInformationSystem
             InitializeComponent();
         }
 
+        public void SetFilter(string expression)
+        {
+            пассажирBindingSource.Filter = expression;
+        }
+
         private void пассажирBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             Validate();

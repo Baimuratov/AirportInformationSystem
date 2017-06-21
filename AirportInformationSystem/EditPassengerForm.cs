@@ -66,14 +66,24 @@ namespace AirportInformationSystem
             }
 
             // Проверка серии паспорта
-            if (!Verification.CheckNotEmptyString(_passportSeriesMaskedTextBox.Text, ref passportSeries, _table.Серия_паспортаColumn.MaxLength, "Серия паспорта"))
+            if (_passportSeriesMaskedTextBox.MaskCompleted)
             {
+                passportSeries = _passportSeriesMaskedTextBox.Text;
+            }
+            else
+            {
+                MessageBox.Show("Не указана серия паспорта", "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 return;
             }
 
             // Проверка номера паспорта
-            if (!Verification.CheckNotEmptyString(_passportNumberMaskedTextBox.Text, ref passportNumber, _table.Номер_паспортаColumn.MaxLength, "Номер паспорта"))
+            if (_passportNumberMaskedTextBox.MaskCompleted)
             {
+                passportNumber = _passportNumberMaskedTextBox.Text;
+            }
+            else
+            {
+                MessageBox.Show("Не указан номер паспорта", "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 return;
             }
 
