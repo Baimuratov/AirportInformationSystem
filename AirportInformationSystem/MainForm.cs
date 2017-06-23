@@ -12,16 +12,18 @@ namespace AirportInformationSystem
 {
     public partial class MainForm : Form
     {
+        private PassengersForm _passengers;
+
         public MainForm()
         {
             InitializeComponent();
+
+            _passengers = new PassengersForm();
         }
 
         private void авиарейсBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            Validate();
-            авиарейсBindingSource.EndEdit();
-            tableAdapterManager.UpdateAll(airportDataBaseDataSet);
+            Save();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -30,112 +32,245 @@ namespace AirportInformationSystem
             авиарейсTableAdapter.Fill(airportDataBaseDataSet.Авиарейс);
         }
 
-        private void addFlight()
+        private void AppendFlight()
         {
-            EditFlightForm addFlightRowForm = new EditFlightForm(airportDataBaseDataSet.Авиарейс, airportDataBaseDataSet.Авиарейс.Count);
-            addFlightRowForm.ShowDialog();
+            EditFlightForm additionFlight = new EditFlightForm(airportDataBaseDataSet.Авиарейс);
+            additionFlight.ShowDialog();
         }
 
-        private void changeFlight()
+        private void ChangeFlight()
         {
-            if (авиарейсDataGridView.CurrentCell != null)
+            if (авиарейсDataGridView.SelectedCells.Count > 0)
             {
-                EditFlightForm changeFlightForm = new EditFlightForm(airportDataBaseDataSet.Авиарейс, авиарейсDataGridView.CurrentCell.RowIndex);
-                changeFlightForm.ShowDialog();
+                DataRowView rowView = (DataRowView)авиарейсDataGridView.SelectedCells[0].OwningRow.DataBoundItem;
+                EditFlightForm changeFlight = new EditFlightForm(airportDataBaseDataSet.Авиарейс, (AirportDataBaseDataSet.АвиарейсRow)rowView.Row);
+                changeFlight.ShowDialog();
             }
         }
 
-        private void deleteFlight()
+        private void DeleteFlight()
         {
-            if (airportDataBaseDataSet.Авиарейс.Count == 0 || авиарейсDataGridView.SelectedCells.Count == 0)
+            if (airportDataBaseDataSet.Авиарейс.Count != 0
+                && авиарейсDataGridView.SelectedCells.Count != 0)
             {
-                return;
-            }
-            DataGridViewSelectedCellCollection cells = авиарейсDataGridView.SelectedCells;
-            List<DataGridViewCell> newCells = new List<DataGridViewCell>();
-            newCells.Add(cells[0]);
-            // получение списка newCells, в котором все ячейки принадлежат разным строкам
-            bool unique;
-            for (int i = 1; i < cells.Count; i++)
-            {
-                // делаем предположение что cells[i] обладает индексом строки
-                // не встречающимся у ячеек newCells
-                unique = true;
-                for (int j = 0; j < newCells.Count; j++)
+                DataGridViewSelectedCellCollection cells = авиарейсDataGridView.SelectedCells;
+                List<DataGridViewCell> newCells = new List<DataGridViewCell>();
+                newCells.Add(cells[0]);
+
+                // получение списка newCells, в котором все ячейки принадлежат разным строкам
+                bool unique;
+                for (int i = 1; i < cells.Count; i++)
                 {
-                    if (newCells[j].RowIndex == cells[i].RowIndex)
+                    // делаем предположение что cells[i] обладает индексом строки
+                    // не встречающимся у ячеек newCells
+                    unique = true;
+                    for (int j = 0; j < newCells.Count; j++)
                     {
-                        unique = false;
-                        break;
+                        if (newCells[j].RowIndex == cells[i].RowIndex)
+                        {
+                            unique = false;
+                            break;
+                        }
+                    }
+                    if (unique)
+                    {
+                        newCells.Add(cells[i]);
                     }
                 }
-                if (unique)
-                {
-                    newCells.Add(cells[i]);
-                }
-            }
 
-            foreach (DataGridViewCell cell in newCells)
-            {
-                DataRow row = airportDataBaseDataSet.Авиарейс.Rows[cell.RowIndex];
-                airportDataBaseDataSet.Авиарейс.RemoveАвиарейсRow((AirportDataBaseDataSet.АвиарейсRow)row);
+                foreach (DataGridViewCell cell in newCells)
+                {
+                    DataRowView rowView = (DataRowView)cell.OwningRow.DataBoundItem;
+                    airportDataBaseDataSet.Авиарейс.RemoveАвиарейсRow((AirportDataBaseDataSet.АвиарейсRow)rowView.Row);
+                }
             }
         }
 
-        private void ShowAllPassengers()
+        public void Search(TableName tableName)
         {
-            PassengersForm passengers = new PassengersForm();
-            passengers.Show();
+            SearchForm searchForm = new SearchForm(tableName);
+            if (searchForm.ShowDialog() == DialogResult.OK)
+            {
+                switch (searchForm.Table)
+                {
+                    case TableName.Flight:
+                        авиарейсBindingSource.Filter = searchForm.FilterExpression;
+                        break;
+                    case TableName.Passenger:
+                        PassengersForm passengers = new PassengersForm();
+                        passengers.SetFilter(searchForm.FilterExpression);
+                        passengers.Show();
+                        break;
+                }
+            }
+        }
+
+        void Save()
+        {
+            Validate();
+            авиарейсBindingSource.EndEdit();
+            tableAdapterManager.UpdateAll(airportDataBaseDataSet);
         }
 
         private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            addFlight();
+            AppendFlight();
         }
 
         private void изменитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            changeFlight();
+            ChangeFlight();
         }
 
         private void всеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ShowAllPassengers();
+            if (_passengers.IsDisposed)
+            {
+                _passengers = new PassengersForm();
+            }
+            _passengers.RemoveFilter();
+            _passengers.Activate();
+            _passengers.Show(this);
         }
 
         private void выбранногоРейсаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (авиарейсDataGridView.CurrentCell != null)
+            DataGridViewSelectedCellCollection cells = авиарейсDataGridView.SelectedCells;
+
+            if (cells.Count > 0)
             {
-                PassengersForm passengers = new PassengersForm();
-                string val = airportDataBaseDataSet.Авиарейс.Rows[авиарейсDataGridView.CurrentCell.RowIndex].Field<int>("Номер рейса").ToString();
-                passengers.SetFilter("[Номер рейса] = " + val);
-                passengers.Show();
+                DataRowView rowView = (DataRowView)cells[0].OwningRow.DataBoundItem;
+                string val = rowView.Row.Field<int>("Номер рейса").ToString();
+
+                if (_passengers.IsDisposed)
+                {
+                    _passengers = new PassengersForm();
+                }
+                _passengers.SetFilter("[Номер рейса] = " + val);
+                _passengers.Show(this);
+                _passengers.Activate();
             }
         }
 
         private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            deleteFlight();
+            DeleteFlight();
         }
 
-        private void авиарейсToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void авиарейсыToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SearchForm flightSearch = new SearchForm(TableName.Flight);
-            if (flightSearch.ShowDialog() == DialogResult.OK && flightSearch.Table == TableName.Flight)
-            {
-                авиарейсBindingSource.Filter = flightSearch.FilterExpression;
-            }
+            Search(TableName.Flight);
         }
 
         private void пассажирыToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            SearchForm flightSearch = new SearchForm(TableName.Passenger);
-            if (flightSearch.ShowDialog() == DialogResult.OK && flightSearch.Table == TableName.Flight)
+            Search(TableName.Passenger);
+        }
+
+        private void сброситьРезультатПоискаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            авиарейсBindingSource.RemoveFilter();
+        }
+
+        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Save();
+        }
+
+        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (airportDataBaseDataSet.HasChanges() || _passengers.HasChanges())
             {
-                PassengersForm passengers = new PassengersForm();
-                passengers.SetFilter(flightSearch.FilterExpression);
-                passengers.Show();
+                switch (MessageBox.Show("Сохранить изменения в базе данных?", "", MessageBoxButtons.YesNoCancel))
+                {
+                    case DialogResult.Yes:
+                        Save();
+                        _passengers.Save();
+                        break;
+                    case DialogResult.No:
+                        break;
+                    case DialogResult.Cancel:
+                        e.Cancel = true;
+                        break;
+                }
+            }
+        }
+
+        private void авиарейсDataGridView_CellStateChanged(object sender, DataGridViewCellStateChangedEventArgs e)
+        {
+            //MessageBox.Show(string.Format("SRC {0}", авиарейсDataGridView.SelectedRows.Count));
+            DataGridViewSelectedCellCollection cells = авиарейсDataGridView.SelectedCells;
+            if (cells.Count > 0)
+            {
+                удалитьToolStripMenuItem.Enabled = true;
+                int i = cells[0].RowIndex;
+                foreach (DataGridViewCell cell in cells)
+                {
+                    if (cell.RowIndex != i)
+                    {
+                        изменитьToolStripMenuItem.Enabled = false;
+                        выбранногоРейсаToolStripMenuItem.Enabled = false;
+                        return;
+                    }
+                }
+                изменитьToolStripMenuItem.Enabled = true;
+                выбранногоРейсаToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                if (авиарейсDataGridView.SelectedRows.Count == 1)
+                {
+                    изменитьToolStripMenuItem.Enabled = true;
+                    удалитьToolStripMenuItem.Enabled = true;
+                    выбранногоРейсаToolStripMenuItem.Enabled = true;
+                }
+                else
+                {
+                    изменитьToolStripMenuItem.Enabled = false;
+                    удалитьToolStripMenuItem.Enabled = false;
+                    выбранногоРейсаToolStripMenuItem.Enabled = false;
+                }
+            }
+        }
+
+        private void авиарейсDataGridView_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+            DataGridViewSelectedCellCollection cells = авиарейсDataGridView.SelectedCells;
+            if (cells.Count > 0)
+            {
+                удалитьToolStripMenuItem.Enabled = true;
+                int i = cells[0].RowIndex;
+                foreach (DataGridViewCell cell in cells)
+                {
+                    if (cell.RowIndex != i)
+                    {
+                        изменитьToolStripMenuItem.Enabled = false;
+                        выбранногоРейсаToolStripMenuItem.Enabled = false;
+                        return;
+                    }
+                }
+                изменитьToolStripMenuItem.Enabled = true;
+                выбранногоРейсаToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                if (авиарейсDataGridView.SelectedRows.Count == 1)
+                {
+                    изменитьToolStripMenuItem.Enabled = true;
+                    удалитьToolStripMenuItem.Enabled = true;
+                    выбранногоРейсаToolStripMenuItem.Enabled = true;
+                }
+                else
+                {
+                    изменитьToolStripMenuItem.Enabled = false;
+                    удалитьToolStripMenuItem.Enabled = false;
+                    выбранногоРейсаToolStripMenuItem.Enabled = false;
+                }
             }
         }
     }

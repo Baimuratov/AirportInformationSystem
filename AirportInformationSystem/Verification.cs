@@ -68,25 +68,6 @@ namespace AirportInformationSystem
             textBox.Modified = false;
         }
 
-        public static bool CheckString(string verifiableText, ref object variable, int maxLength, string name)
-        {
-            if (verifiableText == string.Empty)
-            {
-                variable = null;
-            }
-            else
-            {
-                int difference = verifiableText.Length - maxLength;
-                if (difference > 0)
-                {
-                    MessageBox.Show(string.Format("{0} превышает допустимую длину на {1}", name, difference), "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    return false;
-                }
-                variable = verifiableText;
-            }
-            return true;
-        }
-
         public static bool CheckDate(string verifiableText, ref object variable, string name)
         {
             if (verifiableText == "  .  .       :")

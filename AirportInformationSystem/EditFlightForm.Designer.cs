@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditFlightForm));
             this._attributesLabel = new System.Windows.Forms.Label();
             this._idTextBox = new System.Windows.Forms.TextBox();
             this._planeNameTextBox = new System.Windows.Forms.TextBox();
@@ -45,10 +46,9 @@
             this._attributesLabel.AutoSize = true;
             this._attributesLabel.Location = new System.Drawing.Point(12, 24);
             this._attributesLabel.Name = "_attributesLabel";
-            this._attributesLabel.Size = new System.Drawing.Size(139, 169);
+            this._attributesLabel.Size = new System.Drawing.Size(293, 208);
             this._attributesLabel.TabIndex = 0;
-            this._attributesLabel.Text = "Номер\r\n\r\nИдентификатор самолёта\r\n\r\nДата отправления\r\n\r\nДата прибытия\r\n\r\nПункты по" +
-    "садки\r\n\r\nПунк назначения\r\n\r\nСтоимость билета";
+            this._attributesLabel.Text = resources.GetString("_attributesLabel.Text");
             // 
             // _idTextBox
             // 
@@ -109,7 +109,7 @@
             // _okButton
             // 
             this._okButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this._okButton.Location = new System.Drawing.Point(71, 225);
+            this._okButton.Location = new System.Drawing.Point(71, 250);
             this._okButton.Name = "_okButton";
             this._okButton.Size = new System.Drawing.Size(80, 25);
             this._okButton.TabIndex = 8;
@@ -121,7 +121,7 @@
             // 
             this._cancelButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this._cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this._cancelButton.Location = new System.Drawing.Point(214, 225);
+            this._cancelButton.Location = new System.Drawing.Point(214, 250);
             this._cancelButton.Name = "_cancelButton";
             this._cancelButton.Size = new System.Drawing.Size(80, 25);
             this._cancelButton.TabIndex = 9;
@@ -134,7 +134,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this._cancelButton;
-            this.ClientSize = new System.Drawing.Size(366, 262);
+            this.ClientSize = new System.Drawing.Size(366, 287);
             this.Controls.Add(this._cancelButton);
             this.Controls.Add(this._okButton);
             this.Controls.Add(this._ticketPriceTextBox);

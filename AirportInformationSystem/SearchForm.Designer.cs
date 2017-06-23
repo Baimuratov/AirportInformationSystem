@@ -57,14 +57,16 @@
             this._hintLabel = new System.Windows.Forms.Label();
             this._findButton = new System.Windows.Forms.Button();
             this._cancelButton = new System.Windows.Forms.Button();
+            this._tableNameGroupBox = new System.Windows.Forms.GroupBox();
             this._flightGroupBox.SuspendLayout();
             this._passengerGroupBox.SuspendLayout();
+            this._tableNameGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // _flightRadioButton
             // 
             this._flightRadioButton.AutoSize = true;
-            this._flightRadioButton.Location = new System.Drawing.Point(12, 12);
+            this._flightRadioButton.Location = new System.Drawing.Point(6, 19);
             this._flightRadioButton.Name = "_flightRadioButton";
             this._flightRadioButton.Size = new System.Drawing.Size(82, 17);
             this._flightRadioButton.TabIndex = 0;
@@ -76,7 +78,7 @@
             // _passengerRadioButton
             // 
             this._passengerRadioButton.AutoSize = true;
-            this._passengerRadioButton.Location = new System.Drawing.Point(100, 12);
+            this._passengerRadioButton.Location = new System.Drawing.Point(94, 19);
             this._passengerRadioButton.Name = "_passengerRadioButton";
             this._passengerRadioButton.Size = new System.Drawing.Size(85, 17);
             this._passengerRadioButton.TabIndex = 1;
@@ -97,7 +99,7 @@
             this._flightGroupBox.Controls.Add(this._planeNameTextBox);
             this._flightGroupBox.Controls.Add(this._idTextBox);
             this._flightGroupBox.Controls.Add(this.label1);
-            this._flightGroupBox.Location = new System.Drawing.Point(12, 35);
+            this._flightGroupBox.Location = new System.Drawing.Point(12, 91);
             this._flightGroupBox.Name = "_flightGroupBox";
             this._flightGroupBox.Size = new System.Drawing.Size(360, 198);
             this._flightGroupBox.TabIndex = 2;
@@ -196,7 +198,7 @@
             this.label1.Size = new System.Drawing.Size(139, 169);
             this.label1.TabIndex = 8;
             this.label1.Text = "Номер\r\n\r\nИдентификатор самолёта\r\n\r\nДата отправления\r\n\r\nДата прибытия\r\n\r\nПункты по" +
-    "садки\r\n\r\nПунк назначения\r\n\r\nСтоимость билета";
+    "садки\r\n\r\nПункт назначения\r\n\r\nСтоимость билета";
             // 
             // _passengerGroupBox
             // 
@@ -212,7 +214,7 @@
             this._passengerGroupBox.Controls.Add(this._passportSeriesMaskedTextBox);
             this._passengerGroupBox.Controls.Add(this._flightIdTextBox);
             this._passengerGroupBox.Controls.Add(this.label2);
-            this._passengerGroupBox.Location = new System.Drawing.Point(12, 35);
+            this._passengerGroupBox.Location = new System.Drawing.Point(12, 91);
             this._passengerGroupBox.Name = "_passengerGroupBox";
             this._passengerGroupBox.Size = new System.Drawing.Size(313, 224);
             this._passengerGroupBox.TabIndex = 3;
@@ -269,7 +271,7 @@
             "жен"});
             this._genderComboBox.Location = new System.Drawing.Point(159, 200);
             this._genderComboBox.Name = "_genderComboBox";
-            this._genderComboBox.Size = new System.Drawing.Size(100, 21);
+            this._genderComboBox.Size = new System.Drawing.Size(55, 21);
             this._genderComboBox.TabIndex = 17;
             // 
             // _birthDateMaskedTextBox
@@ -339,15 +341,17 @@
             // _hintLabel
             // 
             this._hintLabel.AutoSize = true;
-            this._hintLabel.Location = new System.Drawing.Point(18, 262);
+            this._hintLabel.Location = new System.Drawing.Point(9, 9);
             this._hintLabel.Name = "_hintLabel";
-            this._hintLabel.Size = new System.Drawing.Size(216, 13);
+            this._hintLabel.Size = new System.Drawing.Size(293, 26);
             this._hintLabel.TabIndex = 4;
-            this._hintLabel.Text = "Пустые поля не учитываются при поиске";
+            this._hintLabel.Text = "Пустые поля не учитываются при поиске. \r\nДробные числа записываются с разделителе" +
+    "м-запятой";
             // 
             // _findButton
             // 
-            this._findButton.Location = new System.Drawing.Point(70, 296);
+            this._findButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this._findButton.Location = new System.Drawing.Point(70, 330);
             this._findButton.Name = "_findButton";
             this._findButton.Size = new System.Drawing.Size(80, 25);
             this._findButton.TabIndex = 5;
@@ -357,13 +361,25 @@
             // 
             // _cancelButton
             // 
+            this._cancelButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this._cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this._cancelButton.Location = new System.Drawing.Point(241, 296);
+            this._cancelButton.Location = new System.Drawing.Point(241, 330);
             this._cancelButton.Name = "_cancelButton";
             this._cancelButton.Size = new System.Drawing.Size(80, 25);
             this._cancelButton.TabIndex = 6;
             this._cancelButton.Text = "Отмена";
             this._cancelButton.UseVisualStyleBackColor = true;
+            // 
+            // _tableNameGroupBox
+            // 
+            this._tableNameGroupBox.Controls.Add(this._passengerRadioButton);
+            this._tableNameGroupBox.Controls.Add(this._flightRadioButton);
+            this._tableNameGroupBox.Location = new System.Drawing.Point(12, 42);
+            this._tableNameGroupBox.Name = "_tableNameGroupBox";
+            this._tableNameGroupBox.Size = new System.Drawing.Size(360, 43);
+            this._tableNameGroupBox.TabIndex = 7;
+            this._tableNameGroupBox.TabStop = false;
+            this._tableNameGroupBox.Text = "Таблица";
             // 
             // SearchForm
             // 
@@ -371,12 +387,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this._cancelButton;
-            this.ClientSize = new System.Drawing.Size(387, 333);
+            this.ClientSize = new System.Drawing.Size(387, 367);
+            this.Controls.Add(this._tableNameGroupBox);
             this.Controls.Add(this._cancelButton);
             this.Controls.Add(this._findButton);
             this.Controls.Add(this._hintLabel);
-            this.Controls.Add(this._passengerRadioButton);
-            this.Controls.Add(this._flightRadioButton);
             this.Controls.Add(this._flightGroupBox);
             this.Controls.Add(this._passengerGroupBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -385,11 +400,13 @@
             this.Name = "SearchForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SearchForm";
+            this.Text = "Поиск";
             this._flightGroupBox.ResumeLayout(false);
             this._flightGroupBox.PerformLayout();
             this._passengerGroupBox.ResumeLayout(false);
             this._passengerGroupBox.PerformLayout();
+            this._tableNameGroupBox.ResumeLayout(false);
+            this._tableNameGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -426,5 +443,6 @@
         private System.Windows.Forms.Label _hintLabel;
         private System.Windows.Forms.Button _findButton;
         private System.Windows.Forms.Button _cancelButton;
+        private System.Windows.Forms.GroupBox _tableNameGroupBox;
     }
 }

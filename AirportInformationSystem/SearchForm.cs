@@ -71,9 +71,9 @@ namespace AirportInformationSystem
                 {
                     if (FilterExpression != string.Empty)
                     {
-                        FilterExpression += "And ";
+                        FilterExpression += "AND ";
                     }
-                    FilterExpression += string.Format("[Идентификатор самолёта] = '{0}' ", _planeNameTextBox.Text);
+                    FilterExpression += string.Format("[Идентификатор самолёта] LIKE '*{0}*' ", _planeNameTextBox.Text);
                 }
                 if (_departureMaskedTextBox.Text != "  .  .       :")
                 {
@@ -81,7 +81,7 @@ namespace AirportInformationSystem
                     {
                         if (FilterExpression != string.Empty)
                         {
-                            FilterExpression += "And ";
+                            FilterExpression += "AND ";
                         }
                         FilterExpression += string.Format("[Дата отправки] = '{0}' ", _departureMaskedTextBox.Text);
                     }
@@ -97,7 +97,7 @@ namespace AirportInformationSystem
                     {
                         if (FilterExpression != string.Empty)
                         {
-                            FilterExpression += "And ";
+                            FilterExpression += "AND ";
                         }
                         FilterExpression += string.Format("[Дата прибытия] = '{0}' ", _arrivalMaskedTextBox.Text);
                     }
@@ -111,23 +111,23 @@ namespace AirportInformationSystem
                 {
                     if (FilterExpression != string.Empty)
                     {
-                        FilterExpression += "And ";
+                        FilterExpression += "AND ";
                     }
-                    FilterExpression += string.Format("[Пункты посадки] = '{0}' ", _embarkationsTextBox.Text);
+                    FilterExpression += string.Format("[Пункты посадки] LIKE '*{0}*' ", _embarkationsTextBox.Text);
                 }
                 if (_destinationTextBox.Text != string.Empty)
                 {
                     if (FilterExpression != string.Empty)
                     {
-                        FilterExpression += "And ";
+                        FilterExpression += "AND ";
                     }
-                    FilterExpression += string.Format("[Пункт назначения] = '{0}' ", _destinationTextBox.Text);
+                    FilterExpression += string.Format("[Пункт назначения] LIKE '*{0}*' ", _destinationTextBox.Text);
                 }
                 if (_ticketPriceTextBox.Text != string.Empty)
                 {
                     if (FilterExpression != string.Empty)
                     {
-                        FilterExpression += "And ";
+                        FilterExpression += "AND ";
                     }
                     FilterExpression += string.Format("[Стоимость билета] {0} {1}", _ticketPriceComboBox.SelectedItem, _ticketPriceTextBox.Text);
                 }
@@ -145,7 +145,7 @@ namespace AirportInformationSystem
                     {
                         if (FilterExpression != string.Empty)
                         {
-                            FilterExpression += "And ";
+                            FilterExpression += "AND ";
                         }
                         FilterExpression += string.Format("[Серия паспорта] {0} {1} ", _passportSeriesComboBox.SelectedItem, _passportSeriesMaskedTextBox.Text);
                     }
@@ -161,7 +161,7 @@ namespace AirportInformationSystem
                     {
                         if (FilterExpression != string.Empty)
                         {
-                            FilterExpression += "And ";
+                            FilterExpression += "AND ";
                         }
                         FilterExpression += string.Format("[Номер паспорта] {0} {1} ", _passportNumberComboBox.SelectedItem, _passportNumberMaskedTextBox.Text);
                     }
@@ -175,25 +175,25 @@ namespace AirportInformationSystem
                 {
                     if (FilterExpression != string.Empty)
                     {
-                        FilterExpression += "And ";
+                        FilterExpression += "AND ";
                     }
-                    FilterExpression += string.Format("[Фамилия] = '{0}' ", _surnameTextBox.Text);
+                    FilterExpression += string.Format("[Фамилия] LIKE '*{0}*' ", _surnameTextBox.Text);
                 }
                 if (_nameTextBox.Text != string.Empty)
                 {
                     if (FilterExpression != string.Empty)
                     {
-                        FilterExpression += "And ";
+                        FilterExpression += "AND ";
                     }
-                    FilterExpression += string.Format("[Имя] = '{0}' ", _nameTextBox.Text);
+                    FilterExpression += string.Format("[Имя] LIKE '*{0}*' ", _nameTextBox.Text);
                 }
                 if (_patronymicTextBox.Text != string.Empty)
                 {
                     if (FilterExpression != string.Empty)
                     {
-                        FilterExpression += "And ";
+                        FilterExpression += "AND ";
                     }
-                    FilterExpression += string.Format("[Отчество] = '{0}' ", _patronymicTextBox.Text);
+                    FilterExpression += string.Format("[Отчество] LIKE '*{0}*' ", _patronymicTextBox.Text);
                 }
                 if (_birthDateMaskedTextBox.Text != "  .  .       :")
                 {
@@ -201,7 +201,7 @@ namespace AirportInformationSystem
                     {
                         if (FilterExpression != string.Empty)
                         {
-                            FilterExpression += "And ";
+                            FilterExpression += "AND ";
                         }
                         FilterExpression += string.Format("[Дата рождения] = '{0}' ", _birthDateMaskedTextBox.Text);
                     }
@@ -215,7 +215,7 @@ namespace AirportInformationSystem
                 {
                     if (FilterExpression != string.Empty)
                     {
-                        FilterExpression += "And ";
+                        FilterExpression += "AND ";
                     }
                     FilterExpression += string.Format("[Пол] = '{0}'", _genderComboBox.SelectedItem);
                 }

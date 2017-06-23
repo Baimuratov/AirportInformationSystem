@@ -35,6 +35,11 @@
             this.добавитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.изменитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.поискToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.авиарейсыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.пассажирыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.сброситьРезультатПоискаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.airportDataBaseDataSet = new AirportInformationSystem.AirportDataBaseDataSet();
             this.пассажирBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.пассажирTableAdapter = new AirportInformationSystem.AirportDataBaseDataSetTableAdapters.ПассажирTableAdapter();
@@ -61,23 +66,22 @@
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.airportDataBaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.пассажирBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.пассажирBindingNavigator)).BeginInit();
             this.пассажирBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.пассажирDataGridView)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.пассажирToolStripMenuItem});
+            this.пассажирToolStripMenuItem,
+            this.поискToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(879, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(736, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -111,6 +115,43 @@
             this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.удалитьToolStripMenuItem.Text = "Удалить";
             this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
+            // 
+            // поискToolStripMenuItem
+            // 
+            this.поискToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.авиарейсыToolStripMenuItem,
+            this.пассажирыToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.сброситьРезультатПоискаToolStripMenuItem});
+            this.поискToolStripMenuItem.Name = "поискToolStripMenuItem";
+            this.поискToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.поискToolStripMenuItem.Text = "Поиск";
+            // 
+            // авиарейсыToolStripMenuItem
+            // 
+            this.авиарейсыToolStripMenuItem.Name = "авиарейсыToolStripMenuItem";
+            this.авиарейсыToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.авиарейсыToolStripMenuItem.Text = "Авиарейсы";
+            this.авиарейсыToolStripMenuItem.Click += new System.EventHandler(this.авиарейсыToolStripMenuItem_Click);
+            // 
+            // пассажирыToolStripMenuItem
+            // 
+            this.пассажирыToolStripMenuItem.Name = "пассажирыToolStripMenuItem";
+            this.пассажирыToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.пассажирыToolStripMenuItem.Text = "Пассажиры";
+            this.пассажирыToolStripMenuItem.Click += new System.EventHandler(this.пассажирыToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(222, 6);
+            // 
+            // сброситьРезультатПоискаToolStripMenuItem
+            // 
+            this.сброситьРезультатПоискаToolStripMenuItem.Name = "сброситьРезультатПоискаToolStripMenuItem";
+            this.сброситьРезультатПоискаToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.сброситьРезультатПоискаToolStripMenuItem.Text = "Сбросить результат поиска";
+            this.сброситьРезультатПоискаToolStripMenuItem.Click += new System.EventHandler(this.сброситьРезультатПоискаToolStripMenuItem_Click);
             // 
             // airportDataBaseDataSet
             // 
@@ -159,7 +200,7 @@
             this.пассажирBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.пассажирBindingNavigator.Name = "пассажирBindingNavigator";
             this.пассажирBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.пассажирBindingNavigator.Size = new System.Drawing.Size(879, 25);
+            this.пассажирBindingNavigator.Size = new System.Drawing.Size(736, 25);
             this.пассажирBindingNavigator.TabIndex = 1;
             this.пассажирBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -275,95 +316,92 @@
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8});
             this.пассажирDataGridView.DataSource = this.пассажирBindingSource;
-            this.пассажирDataGridView.Location = new System.Drawing.Point(6, 19);
+            this.пассажирDataGridView.Location = new System.Drawing.Point(12, 52);
             this.пассажирDataGridView.Name = "пассажирDataGridView";
             this.пассажирDataGridView.ReadOnly = true;
-            this.пассажирDataGridView.Size = new System.Drawing.Size(843, 379);
+            this.пассажирDataGridView.Size = new System.Drawing.Size(712, 398);
             this.пассажирDataGridView.TabIndex = 2;
+            this.пассажирDataGridView.CellStateChanged += new System.Windows.Forms.DataGridViewCellStateChangedEventHandler(this.пассажирDataGridView_CellStateChanged);
+            this.пассажирDataGridView.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.пассажирDataGridView_RowStateChanged);
             // 
             // dataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dataGridViewTextBoxColumn1.DataPropertyName = "Серия паспорта";
             this.dataGridViewTextBoxColumn1.HeaderText = "Серия паспорта";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 104;
             // 
             // dataGridViewTextBoxColumn2
             // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dataGridViewTextBoxColumn2.DataPropertyName = "Номер паспорта";
             this.dataGridViewTextBoxColumn2.HeaderText = "Номер паспорта";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 106;
             // 
             // dataGridViewTextBoxColumn3
             // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dataGridViewTextBoxColumn3.DataPropertyName = "Номер рейса";
             this.dataGridViewTextBoxColumn3.HeaderText = "Номер рейса";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 91;
             // 
             // dataGridViewTextBoxColumn4
             // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dataGridViewTextBoxColumn4.DataPropertyName = "Фамилия";
             this.dataGridViewTextBoxColumn4.HeaderText = "Фамилия";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 81;
             // 
             // dataGridViewTextBoxColumn5
             // 
-            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dataGridViewTextBoxColumn5.DataPropertyName = "Имя";
             this.dataGridViewTextBoxColumn5.HeaderText = "Имя";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 54;
             // 
             // dataGridViewTextBoxColumn6
             // 
-            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dataGridViewTextBoxColumn6.DataPropertyName = "Отчество";
             this.dataGridViewTextBoxColumn6.HeaderText = "Отчество";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 79;
             // 
             // dataGridViewTextBoxColumn7
             // 
-            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dataGridViewTextBoxColumn7.DataPropertyName = "Дата рождения";
             this.dataGridViewTextBoxColumn7.HeaderText = "Дата рождения";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 102;
             // 
             // dataGridViewTextBoxColumn8
             // 
-            this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dataGridViewTextBoxColumn8.DataPropertyName = "Пол";
             this.dataGridViewTextBoxColumn8.HeaderText = "Пол";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.пассажирDataGridView);
-            this.groupBox1.Location = new System.Drawing.Point(12, 52);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(855, 404);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Пассажиры";
+            this.dataGridViewTextBoxColumn8.Width = 52;
             // 
             // PassengersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(879, 468);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(736, 462);
+            this.Controls.Add(this.пассажирDataGridView);
             this.Controls.Add(this.пассажирBindingNavigator);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -379,7 +417,6 @@
             this.пассажирBindingNavigator.ResumeLayout(false);
             this.пассажирBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.пассажирDataGridView)).EndInit();
-            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -405,11 +442,16 @@
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton пассажирBindingNavigatorSaveItem;
         private System.Windows.Forms.DataGridView пассажирDataGridView;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ToolStripMenuItem пассажирToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem добавитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem изменитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
+        private System.Windows.Forms.BindingSource пассажирBindingSource;
+        private System.Windows.Forms.ToolStripMenuItem поискToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem авиарейсыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem пассажирыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem сброситьРезультатПоискаToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -418,6 +460,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.BindingSource пассажирBindingSource;
     }
 }

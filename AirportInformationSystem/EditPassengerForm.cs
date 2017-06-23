@@ -14,26 +14,29 @@ namespace AirportInformationSystem
     {
         private readonly AirportDataBaseDataSet.ПассажирDataTable _table;
 
-        private readonly int _index;
+        private AirportDataBaseDataSet.ПассажирRow _row;
 
-        public EditPassengerForm(AirportDataBaseDataSet.ПассажирDataTable table, int index)
+        public EditPassengerForm(AirportDataBaseDataSet.ПассажирDataTable table, AirportDataBaseDataSet.ПассажирRow row = null)
         {
             InitializeComponent();
 
             _table = table;
-            _index = index;
-            if (_index < _table.Count)
-            {
-                DataRow row = _table.Rows[_index];
+            _row = row;
 
-                _flightIdTextBox.Text = row.Field<int>("Номер рейса").ToString();
-                _passportSeriesMaskedTextBox.Text = row.Field<string>("Серия паспорта");
-                _passportNumberMaskedTextBox.Text = row.Field<string>("Номер паспорта");
-                _surnameTextBox.Text = row.Field<string>("Фамилия");
-                _nameTextBox.Text = row.Field<string>("Имя");
-                _patronymicTextBox.Text = row.Field<string>("Отчество");
-                _birthDateMaskedTextBox.Text = row.IsNull("Дата рождения") ? null : row.Field<DateTime>("Дата рождения").ToString();
-                _genderComboBox.Text = row.Field<string>("Пол");
+            _surnameTextBox.MaxLength = _table.ФамилияColumn.MaxLength;
+            _nameTextBox.MaxLength = _table.ИмяColumn.MaxLength;
+            _patronymicTextBox.MaxLength = _table.ОтчествоColumn.MaxLength;
+
+            if (_row != null)
+            {
+                _flightIdTextBox.Text = _row.Field<int>("Номер рейса").ToString();
+                _passportSeriesMaskedTextBox.Text = _row.Field<string>("Серия паспорта");
+                _passportNumberMaskedTextBox.Text = _row.Field<string>("Номер паспорта");
+                _surnameTextBox.Text = _row.Field<string>("Фамилия");
+                _nameTextBox.Text = _row.Field<string>("Имя");
+                _patronymicTextBox.Text = _row.Field<string>("Отчество");
+                _birthDateMaskedTextBox.Text = _row.IsNull("Дата рождения") ? null : _row.Field<DateTime>("Дата рождения").ToString();
+                _genderComboBox.Text = _row.Field<string>("Пол");
             }
             _genderComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
         }
@@ -88,21 +91,21 @@ namespace AirportInformationSystem
             }
 
             // Проверка фамилии
-            if (!Verification.CheckString(_surnameTextBox.Text, ref surname, _table.ФамилияColumn.MaxLength, "Фамилия"))
+            if (_surnameTextBox.Text != string.Empty)
             {
-                return;
+                surname = _surnameTextBox.Text;
             }
 
             // Проверка имени
-            if (!Verification.CheckString(_nameTextBox.Text, ref name, _table.ИмяColumn.MaxLength, "Имя"))
+            if (_nameTextBox.Text != string.Empty)
             {
-                return;
+                name = _nameTextBox.Text;
             }
 
             // Проверка отчества
-            if (!Verification.CheckString(_patronymicTextBox.Text, ref patronymic, _table.ОтчествоColumn.MaxLength, "Отчество"))
+            if (_patronymicTextBox.Text != string.Empty)
             {
-                return;
+                patronymic = _patronymicTextBox.Text;
             }
 
             // Проверка даты рождения
@@ -114,15 +117,13 @@ namespace AirportInformationSystem
             // Проверка пола
             gender = _genderComboBox.Text != string.Empty ? _genderComboBox.Text : null;
 
-            if (_index < _table.Count)
+            if (_row != null)
             {
-                DataRow row = _table.Rows[_index];
-
                 try
                 {
-                    row.SetField<object>("Номер рейса", flightId);
-                    row.SetField<object>("Серия паспорта", passportSeries);
-                    row.SetField<object>("Номер паспорта", passportNumber);
+                    _row.SetField<object>("Номер рейса", flightId);
+                    _row.SetField<object>("Серия паспорта", passportSeries);
+                    _row.SetField<object>("Номер паспорта", passportNumber);
                 }
                 catch (ConstraintException)
                 {
@@ -130,30 +131,30 @@ namespace AirportInformationSystem
                         "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     return;
                 }
-                row.SetField<object>("Фамилия", surname);
-                row.SetField<object>("Имя", name);
-                row.SetField<object>("Отчество", patronymic);
-                row.SetField<object>("Дата рождения", birthDate);
-                row.SetField<object>("Пол", gender);
+                _row.SetField<object>("Фамилия", surname);
+                _row.SetField<object>("Имя", name);
+                _row.SetField<object>("Отчество", patronymic);
+                _row.SetField<object>("Дата рождения", birthDate);
+                _row.SetField<object>("Пол", gender);
             }
             else
             {
-                AirportDataBaseDataSet.ПассажирRow row = _table.NewПассажирRow();
+                _row = _table.NewПассажирRow();
 
-                row.Номер_рейса = (int)flightId;
-                row.Серия_паспорта = (string)passportSeries;
-                row.Номер_паспорта = (string)passportNumber;
-                row.Фамилия = (string)surname;
-                row.Имя = (string)name;
-                row.Отчество = (string)patronymic;
+                _row.Номер_рейса = (int)flightId;
+                _row.Серия_паспорта = (string)passportSeries;
+                _row.Номер_паспорта = (string)passportNumber;
+                _row.Фамилия = (string)surname;
+                _row.Имя = (string)name;
+                _row.Отчество = (string)patronymic;
                 if (birthDate != null)
                 {
-                    row.Дата_рождения = (DateTime)birthDate;
+                    _row.Дата_рождения = (DateTime)birthDate;
                 }
-                row.Пол = (string)gender;
+                _row.Пол = (string)gender;
                 try
                 {
-                    _table.AddПассажирRow(row);
+                    _table.AddПассажирRow(_row);
                 }
                 catch (ConstraintException)
                 {

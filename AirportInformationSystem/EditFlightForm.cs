@@ -14,25 +14,28 @@ namespace AirportInformationSystem
     {
         private AirportDataBaseDataSet.АвиарейсDataTable _table;
 
-        private int _index;
+        private AirportDataBaseDataSet.АвиарейсRow _row;
 
-        public EditFlightForm(AirportDataBaseDataSet.АвиарейсDataTable table, int index)
+        public EditFlightForm(AirportDataBaseDataSet.АвиарейсDataTable table, AirportDataBaseDataSet.АвиарейсRow row = null)
         {
             InitializeComponent();
 
             _table = table;
-            _index = index;
-            if (_index < _table.Count)
-            {
-                DataRow row = _table.Rows[_index];
+            _row = row;
 
-                _idTextBox.Text = row.Field<int>("Номер рейса").ToString();
-                _planeNameTextBox.Text = row.Field<string>("Идентификатор самолёта");
-                _departureMaskedTextBox.Text = row.IsNull("Дата отправки") ? null : row.Field<DateTime>("Дата отправки").ToString();
-                _arrivalMaskedTextBox.Text = row.IsNull("Дата прибытия") ? null : row.Field<DateTime>("Дата прибытия").ToString();
-                _embarkationsTextBox.Text = row.Field<string>("Пункты посадки");
-                _destinationTextBox.Text = row.Field<string>("Пункт назначения");
-                _ticketPriceTextBox.Text = row.IsNull("Стоимость билета") ? null : row.Field<decimal>("Стоимость билета").ToString();
+            _planeNameTextBox.MaxLength = _table.Идентификатор_самолётаColumn.MaxLength;
+            _embarkationsTextBox.MaxLength = _table.Пункты_посадкиColumn.MaxLength;
+            _destinationTextBox.MaxLength = _table.Пункт_назначенияColumn.MaxLength;
+
+            if (_row != null)
+            {
+                _idTextBox.Text = _row.Field<int>("Номер рейса").ToString();
+                _planeNameTextBox.Text = _row.Field<string>("Идентификатор самолёта");
+                _departureMaskedTextBox.Text = _row.IsNull("Дата отправки") ? null : _row.Field<DateTime>("Дата отправки").ToString();
+                _arrivalMaskedTextBox.Text = _row.IsNull("Дата прибытия") ? null : _row.Field<DateTime>("Дата прибытия").ToString();
+                _embarkationsTextBox.Text = _row.Field<string>("Пункты посадки");
+                _destinationTextBox.Text = _row.Field<string>("Пункт назначения");
+                _ticketPriceTextBox.Text = _row.IsNull("Стоимость билета") ? null : _row.Field<decimal>("Стоимость билета").ToString();
             }
         }
 
@@ -63,9 +66,9 @@ namespace AirportInformationSystem
             }
 
             // Проверка идентификатора самолёта
-            if (!Verification.CheckString(_planeNameTextBox.Text, ref planeName, _table.Идентификатор_самолётаColumn.MaxLength, "Идентификатор самолёта"))
+            if (_planeNameTextBox.Text != string.Empty)
             {
-                return;
+                planeName = _planeNameTextBox.Text;
             }
 
             // Проверка даты отправления
@@ -81,15 +84,15 @@ namespace AirportInformationSystem
             }
 
             // Проверка пунктов посадки
-            if (!Verification.CheckString(_embarkationsTextBox.Text, ref embarkations, _table.Пункты_посадкиColumn.MaxLength, "Пункты посадки"))
+            if (_embarkationsTextBox.Text != string.Empty)
             {
-                return;
+                embarkations = _embarkationsTextBox.Text;
             }
 
             // Проверка пункта назначения
-            if (!Verification.CheckString(_destinationTextBox.Text, ref destination, _table.Пункт_назначенияColumn.MaxLength, "Пункт назначения"))
+            if (_destinationTextBox.Text != string.Empty)
             {
-                return;
+                destination = _destinationTextBox.Text;
             }
 
             // Проверка стоимости билета
@@ -114,49 +117,48 @@ namespace AirportInformationSystem
                     return;
                 }
             }
-            if (_index < _table.Count)
-            {
-                DataRow row = _table.Rows[_index];
 
+            if (_row != null)
+            {
                 try
                 {
-                    row.SetField<object>("Номер рейса", id);
+                    _row.SetField<object>("Номер рейса", id);
                 }
                 catch (ConstraintException)
                 {
                     MessageBox.Show("Номер рейса должен быть уникальным", "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     return;
                 }
-                row.SetField<object>("Идентификатор самолёта", planeName);
-                row.SetField<object>("Дата отправки", departure);
-                row.SetField<object>("Дата прибытия", arrival);
-                row.SetField<object>("Пункты посадки", embarkations);
-                row.SetField<object>("Пункт назначения", destination);
-                row.SetField<object>("Стоимость билета", ticketPrice);
+                _row.SetField<object>("Идентификатор самолёта", planeName);
+                _row.SetField<object>("Дата отправки", departure);
+                _row.SetField<object>("Дата прибытия", arrival);
+                _row.SetField<object>("Пункты посадки", embarkations);
+                _row.SetField<object>("Пункт назначения", destination);
+                _row.SetField<object>("Стоимость билета", ticketPrice);
             }
             else
             {
-                AirportDataBaseDataSet.АвиарейсRow row = _table.NewАвиарейсRow();
+                _row = _table.NewАвиарейсRow();
 
-                row.Номер_рейса = (int)id;
-                row.Идентификатор_самолёта = (string)planeName;
+                _row.Номер_рейса = (int)id;
+                _row.Идентификатор_самолёта = (string)planeName;
                 if (departure != null)
                 {
-                    row.Дата_отправки = (DateTime)departure;
+                    _row.Дата_отправки = (DateTime)departure;
                 }
                 if (arrival != null)
                 {
-                    row.Дата_прибытия = (DateTime)arrival;
+                    _row.Дата_прибытия = (DateTime)arrival;
                 }
-                row.Пункты_посадки = (string)embarkations;
-                row.Пункт_назначения = (string)destination;
+                _row.Пункты_посадки = (string)embarkations;
+                _row.Пункт_назначения = (string)destination;
                 if (ticketPrice != null)
                 {
-                    row.Стоимость_билета = (decimal)ticketPrice;
+                    _row.Стоимость_билета = (decimal)ticketPrice;
                 }
                 try
                 {
-                    _table.AddАвиарейсRow(row);
+                    _table.AddАвиарейсRow(_row);
                 }
                 catch (ConstraintException)
                 {

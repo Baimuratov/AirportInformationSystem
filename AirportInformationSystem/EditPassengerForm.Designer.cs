@@ -46,11 +46,10 @@
             this._attributesLabel.AutoSize = true;
             this._attributesLabel.Location = new System.Drawing.Point(12, 18);
             this._attributesLabel.Name = "_attributesLabel";
-            this._attributesLabel.Size = new System.Drawing.Size(314, 234);
+            this._attributesLabel.Size = new System.Drawing.Size(223, 234);
             this._attributesLabel.TabIndex = 0;
             this._attributesLabel.Text = "Номер рейса*\r\n\r\nСерия паспорта*\r\n\r\nНомер паспорта*\r\n\r\nФамилия\r\n\r\nИмя\r\n\r\nОтчество\r" +
-    "\n\r\nДата рождения\r\n\r\nПол\r\n\r\n\r\nПоля отмеченные символом * обязательны для заполнен" +
-    "ия";
+    "\n\r\nДата рождения\r\n\r\nПол\r\n\r\n\r\nСимволом * отмечены обязательные поля";
             // 
             // _flightIdTextBox
             // 
@@ -114,13 +113,13 @@
             "жен"});
             this._genderComboBox.Location = new System.Drawing.Point(153, 197);
             this._genderComboBox.Name = "_genderComboBox";
-            this._genderComboBox.Size = new System.Drawing.Size(100, 21);
+            this._genderComboBox.Size = new System.Drawing.Size(55, 21);
             this._genderComboBox.TabIndex = 8;
             // 
             // _okButton
             // 
             this._okButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this._okButton.Location = new System.Drawing.Point(60, 276);
+            this._okButton.Location = new System.Drawing.Point(60, 275);
             this._okButton.Name = "_okButton";
             this._okButton.Size = new System.Drawing.Size(80, 25);
             this._okButton.TabIndex = 9;
@@ -132,7 +131,7 @@
             // 
             this._cancelButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this._cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this._cancelButton.Location = new System.Drawing.Point(189, 276);
+            this._cancelButton.Location = new System.Drawing.Point(189, 275);
             this._cancelButton.Name = "_cancelButton";
             this._cancelButton.Size = new System.Drawing.Size(80, 25);
             this._cancelButton.TabIndex = 10;
@@ -145,7 +144,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this._cancelButton;
-            this.ClientSize = new System.Drawing.Size(332, 313);
+            this.ClientSize = new System.Drawing.Size(332, 312);
             this.Controls.Add(this._cancelButton);
             this.Controls.Add(this._okButton);
             this.Controls.Add(this._genderComboBox);
