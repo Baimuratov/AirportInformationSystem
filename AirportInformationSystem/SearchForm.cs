@@ -83,11 +83,11 @@ namespace AirportInformationSystem
                         {
                             FilterExpression += "AND ";
                         }
-                        FilterExpression += string.Format("[Дата отправки] = '{0}' ", _departureMaskedTextBox.Text);
+                        FilterExpression += string.Format("[Дата отправления] = '{0}' ", _departureMaskedTextBox.Text);
                     }
                     else
                     {
-                        MessageBox.Show("Дата отправки имеет неправильный формат", "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        MessageBox.Show("Дата отправления имеет неправильный формат", "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         return;
                     }
                 }

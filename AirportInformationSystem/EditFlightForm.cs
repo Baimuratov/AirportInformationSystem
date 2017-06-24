@@ -31,7 +31,7 @@ namespace AirportInformationSystem
             {
                 _idTextBox.Text = _row.Field<int>("Номер рейса").ToString();
                 _planeNameTextBox.Text = _row.Field<string>("Идентификатор самолёта");
-                _departureMaskedTextBox.Text = _row.IsNull("Дата отправки") ? null : _row.Field<DateTime>("Дата отправки").ToString();
+                _departureMaskedTextBox.Text = _row.IsNull("Дата отправления") ? null : _row.Field<DateTime>("Дата отправления").ToString();
                 _arrivalMaskedTextBox.Text = _row.IsNull("Дата прибытия") ? null : _row.Field<DateTime>("Дата прибытия").ToString();
                 _embarkationsTextBox.Text = _row.Field<string>("Пункты посадки");
                 _destinationTextBox.Text = _row.Field<string>("Пункт назначения");
@@ -130,7 +130,7 @@ namespace AirportInformationSystem
                     return;
                 }
                 _row.SetField<object>("Идентификатор самолёта", planeName);
-                _row.SetField<object>("Дата отправки", departure);
+                _row.SetField<object>("Дата отправления", departure);
                 _row.SetField<object>("Дата прибытия", arrival);
                 _row.SetField<object>("Пункты посадки", embarkations);
                 _row.SetField<object>("Пункт назначения", destination);
@@ -144,7 +144,7 @@ namespace AirportInformationSystem
                 _row.Идентификатор_самолёта = (string)planeName;
                 if (departure != null)
                 {
-                    _row.Дата_отправки = (DateTime)departure;
+                    _row.Дата_отправления = (DateTime)departure;
                 }
                 if (arrival != null)
                 {

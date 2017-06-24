@@ -252,8 +252,8 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Дата отправки";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Дата отправки";
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Дата отправления";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Дата отправления";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
             this.dataGridViewTextBoxColumn3.Width = 99;
