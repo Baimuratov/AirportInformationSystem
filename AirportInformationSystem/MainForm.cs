@@ -35,6 +35,7 @@ namespace AirportInformationSystem
         private void AppendFlight()
         {
             EditFlightForm additionFlight = new EditFlightForm(airportDataBaseDataSet.Авиарейс);
+            additionFlight.Text = "Добавление данных об авиарейсе";
             additionFlight.ShowDialog();
         }
 
@@ -44,6 +45,7 @@ namespace AirportInformationSystem
             {
                 DataRowView rowView = (DataRowView)авиарейсDataGridView.SelectedCells[0].OwningRow.DataBoundItem;
                 EditFlightForm changeFlight = new EditFlightForm(airportDataBaseDataSet.Авиарейс, (AirportDataBaseDataSet.АвиарейсRow)rowView.Row);
+                changeFlight.Text = "Изменение данных об авиарейсе";
                 changeFlight.ShowDialog();
             }
         }
@@ -80,8 +82,7 @@ namespace AirportInformationSystem
 
                 foreach (DataGridViewCell cell in newCells)
                 {
-                    DataRowView rowView = (DataRowView)cell.OwningRow.DataBoundItem;
-                    airportDataBaseDataSet.Авиарейс.RemoveАвиарейсRow((AirportDataBaseDataSet.АвиарейсRow)rowView.Row);
+                    авиарейсBindingSource.RemoveAt(cell.RowIndex);
                 }
             }
         }
@@ -97,9 +98,16 @@ namespace AirportInformationSystem
                         авиарейсBindingSource.Filter = searchForm.FilterExpression;
                         break;
                     case TableName.Passenger:
-                        PassengersForm passengers = new PassengersForm();
-                        passengers.SetFilter(searchForm.FilterExpression);
-                        passengers.Show();
+                        if (_passengers.IsDisposed)
+                        {
+                            _passengers = new PassengersForm();
+                        }
+                        _passengers.SetFilter(searchForm.FilterExpression);
+                        if (!_passengers.Visible)
+                        {
+                            _passengers.Show(this);
+                        }
+                        _passengers.Activate();
                         break;
                 }
             }
@@ -129,8 +137,11 @@ namespace AirportInformationSystem
                 _passengers = new PassengersForm();
             }
             _passengers.RemoveFilter();
+            if (!_passengers.Visible)
+            {
+                _passengers.Show(this);
+            }
             _passengers.Activate();
-            _passengers.Show(this);
         }
 
         private void выбранногоРейсаToolStripMenuItem_Click(object sender, EventArgs e)
@@ -147,7 +158,10 @@ namespace AirportInformationSystem
                     _passengers = new PassengersForm();
                 }
                 _passengers.SetFilter("[Номер рейса] = " + val);
-                _passengers.Show(this);
+                if (!_passengers.Visible)
+                {
+                    _passengers.Show(this);
+                }
                 _passengers.Activate();
             }
         }
@@ -272,6 +286,31 @@ namespace AirportInformationSystem
                     выбранногоРейсаToolStripMenuItem.Enabled = false;
                 }
             }
+        }
+
+        private void _addToolStripButton_Click(object sender, EventArgs e)
+        {
+            AppendFlight();
+        }
+
+        private void _changeToolStripButton_Click(object sender, EventArgs e)
+        {
+            ChangeFlight();
+        }
+
+        private void _searchToolStripButton_Click(object sender, EventArgs e)
+        {
+            Search(TableName.Flight);
+        }
+
+        private void _resetSearchToolStripButton_Click(object sender, EventArgs e)
+        {
+            авиарейсBindingSource.RemoveFilter();
+        }
+
+        private void _deleteToolStripButton_Click(object sender, EventArgs e)
+        {
+            DeleteFlight();
         }
     }
 }

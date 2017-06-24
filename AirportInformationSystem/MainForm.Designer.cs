@@ -45,7 +45,7 @@
             this.авиарейсыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.пассажирыToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.сброситьРезультатПоискаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сброситьРезультатыПоискаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.авиарейсDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,9 +59,7 @@
             this.авиарейсTableAdapter = new AirportInformationSystem.AirportDataBaseDataSetTableAdapters.АвиарейсTableAdapter();
             this.tableAdapterManager = new AirportInformationSystem.AirportDataBaseDataSetTableAdapters.TableAdapterManager();
             this.авиарейсBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -70,7 +68,13 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this._addToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this._changeToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this._deleteToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.авиарейсBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this._searchToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this._resetSearchToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.авиарейсDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.авиарейсBindingSource)).BeginInit();
@@ -175,7 +179,7 @@
             this.авиарейсыToolStripMenuItem,
             this.пассажирыToolStripMenuItem1,
             this.toolStripSeparator1,
-            this.сброситьРезультатПоискаToolStripMenuItem});
+            this.сброситьРезультатыПоискаToolStripMenuItem});
             this.поискToolStripMenuItem.Name = "поискToolStripMenuItem";
             this.поискToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.поискToolStripMenuItem.Text = "Поиск";
@@ -183,28 +187,28 @@
             // авиарейсыToolStripMenuItem
             // 
             this.авиарейсыToolStripMenuItem.Name = "авиарейсыToolStripMenuItem";
-            this.авиарейсыToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.авиарейсыToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
             this.авиарейсыToolStripMenuItem.Text = "Авиарейсы";
             this.авиарейсыToolStripMenuItem.Click += new System.EventHandler(this.авиарейсыToolStripMenuItem_Click);
             // 
             // пассажирыToolStripMenuItem1
             // 
             this.пассажирыToolStripMenuItem1.Name = "пассажирыToolStripMenuItem1";
-            this.пассажирыToolStripMenuItem1.Size = new System.Drawing.Size(225, 22);
+            this.пассажирыToolStripMenuItem1.Size = new System.Drawing.Size(234, 22);
             this.пассажирыToolStripMenuItem1.Text = "Пассажиры";
             this.пассажирыToolStripMenuItem1.Click += new System.EventHandler(this.пассажирыToolStripMenuItem1_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(222, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(231, 6);
             // 
-            // сброситьРезультатПоискаToolStripMenuItem
+            // сброситьРезультатыПоискаToolStripMenuItem
             // 
-            this.сброситьРезультатПоискаToolStripMenuItem.Name = "сброситьРезультатПоискаToolStripMenuItem";
-            this.сброситьРезультатПоискаToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
-            this.сброситьРезультатПоискаToolStripMenuItem.Text = "Сбросить результат поиска";
-            this.сброситьРезультатПоискаToolStripMenuItem.Click += new System.EventHandler(this.сброситьРезультатПоискаToolStripMenuItem_Click);
+            this.сброситьРезультатыПоискаToolStripMenuItem.Name = "сброситьРезультатыПоискаToolStripMenuItem";
+            this.сброситьРезультатыПоискаToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.сброситьРезультатыПоискаToolStripMenuItem.Text = "Сбросить результаты поиска";
+            this.сброситьРезультатыПоискаToolStripMenuItem.Click += new System.EventHandler(this.сброситьРезультатПоискаToolStripMenuItem_Click);
             // 
             // авиарейсDataGridView
             // 
@@ -256,7 +260,7 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "Дата отправления";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 99;
+            this.dataGridViewTextBoxColumn3.Width = 115;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -270,20 +274,20 @@
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Пункты посадки";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Пункты посадки";
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Посадки";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Посадки";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 105;
+            this.dataGridViewTextBoxColumn5.Width = 76;
             // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Пункт назначения";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Пункт назначения";
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Назначение";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Назначение";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 114;
+            this.dataGridViewTextBoxColumn6.Width = 93;
             // 
             // dataGridViewTextBoxColumn7
             // 
@@ -317,10 +321,10 @@
             // 
             // авиарейсBindingNavigator
             // 
-            this.авиарейсBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.авиарейсBindingNavigator.AddNewItem = null;
             this.авиарейсBindingNavigator.BindingSource = this.авиарейсBindingSource;
             this.авиарейсBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.авиарейсBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.авиарейсBindingNavigator.DeleteItem = null;
             this.авиарейсBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
@@ -331,9 +335,13 @@
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem,
-            this.авиарейсBindingNavigatorSaveItem});
+            this._addToolStripButton,
+            this._changeToolStripButton,
+            this._deleteToolStripButton,
+            this.авиарейсBindingNavigatorSaveItem,
+            this.toolStripSeparator2,
+            this._searchToolStripButton,
+            this._resetSearchToolStripButton});
             this.авиарейсBindingNavigator.Location = new System.Drawing.Point(0, 24);
             this.авиарейсBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.авиарейсBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -345,30 +353,12 @@
             this.авиарейсBindingNavigator.TabIndex = 2;
             this.авиарейсBindingNavigator.Text = "bindingNavigator1";
             // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Добавить";
-            // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
             this.bindingNavigatorCountItem.Size = new System.Drawing.Size(43, 22);
             this.bindingNavigatorCountItem.Text = "для {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Общее число элементов";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Удалить";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -430,6 +420,39 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // _addToolStripButton
+            // 
+            this._addToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this._addToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("_addToolStripButton.Image")));
+            this._addToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._addToolStripButton.Name = "_addToolStripButton";
+            this._addToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this._addToolStripButton.Text = "toolStripButton1";
+            this._addToolStripButton.ToolTipText = "Добавить данные об авиарейсе";
+            this._addToolStripButton.Click += new System.EventHandler(this._addToolStripButton_Click);
+            // 
+            // _changeToolStripButton
+            // 
+            this._changeToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this._changeToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("_changeToolStripButton.Image")));
+            this._changeToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._changeToolStripButton.Name = "_changeToolStripButton";
+            this._changeToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this._changeToolStripButton.Text = "toolStripButton1";
+            this._changeToolStripButton.ToolTipText = "Изменить данные об авиарейсе";
+            this._changeToolStripButton.Click += new System.EventHandler(this._changeToolStripButton_Click);
+            // 
+            // _deleteToolStripButton
+            // 
+            this._deleteToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this._deleteToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("_deleteToolStripButton.Image")));
+            this._deleteToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._deleteToolStripButton.Name = "_deleteToolStripButton";
+            this._deleteToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this._deleteToolStripButton.Text = "toolStripButton1";
+            this._deleteToolStripButton.ToolTipText = "Удалить данные об авиарейсе";
+            this._deleteToolStripButton.Click += new System.EventHandler(this._deleteToolStripButton_Click);
+            // 
             // авиарейсBindingNavigatorSaveItem
             // 
             this.авиарейсBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -438,6 +461,33 @@
             this.авиарейсBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.авиарейсBindingNavigatorSaveItem.Text = "Сохранить данные";
             this.авиарейсBindingNavigatorSaveItem.Click += new System.EventHandler(this.авиарейсBindingNavigatorSaveItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // _searchToolStripButton
+            // 
+            this._searchToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this._searchToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("_searchToolStripButton.Image")));
+            this._searchToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._searchToolStripButton.Name = "_searchToolStripButton";
+            this._searchToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this._searchToolStripButton.Text = "toolStripButton1";
+            this._searchToolStripButton.ToolTipText = "Поиск авиарейсов";
+            this._searchToolStripButton.Click += new System.EventHandler(this._searchToolStripButton_Click);
+            // 
+            // _resetSearchToolStripButton
+            // 
+            this._resetSearchToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this._resetSearchToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("_resetSearchToolStripButton.Image")));
+            this._resetSearchToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._resetSearchToolStripButton.Name = "_resetSearchToolStripButton";
+            this._resetSearchToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this._resetSearchToolStripButton.Text = "toolStripButton1";
+            this._resetSearchToolStripButton.ToolTipText = "Сбросить результаты поиска";
+            this._resetSearchToolStripButton.Click += new System.EventHandler(this._resetSearchToolStripButton_Click);
             // 
             // MainForm
             // 
@@ -474,9 +524,7 @@
         private AirportDataBaseDataSetTableAdapters.АвиарейсTableAdapter авиарейсTableAdapter;
         private AirportDataBaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.BindingNavigator авиарейсBindingNavigator;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
@@ -501,7 +549,7 @@
         private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem сброситьРезультатПоискаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem сброситьРезультатыПоискаToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -509,5 +557,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.ToolStripButton _addToolStripButton;
+        private System.Windows.Forms.ToolStripButton _changeToolStripButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripButton _searchToolStripButton;
+        private System.Windows.Forms.ToolStripButton _resetSearchToolStripButton;
+        private System.Windows.Forms.ToolStripButton _deleteToolStripButton;
     }
 }

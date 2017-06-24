@@ -45,9 +45,7 @@
             this.пассажирTableAdapter = new AirportInformationSystem.AirportDataBaseDataSetTableAdapters.ПассажирTableAdapter();
             this.tableAdapterManager = new AirportInformationSystem.AirportDataBaseDataSetTableAdapters.TableAdapterManager();
             this.пассажирBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -56,7 +54,13 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this._addToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this._changeToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this._deleteToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.пассажирBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this._searchToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this._resetSearchToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.пассажирDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -176,10 +180,10 @@
             // 
             // пассажирBindingNavigator
             // 
-            this.пассажирBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.пассажирBindingNavigator.AddNewItem = null;
             this.пассажирBindingNavigator.BindingSource = this.пассажирBindingSource;
             this.пассажирBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.пассажирBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.пассажирBindingNavigator.DeleteItem = null;
             this.пассажирBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
@@ -190,9 +194,13 @@
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem,
-            this.пассажирBindingNavigatorSaveItem});
+            this._addToolStripButton,
+            this._changeToolStripButton,
+            this._deleteToolStripButton,
+            this.пассажирBindingNavigatorSaveItem,
+            this.toolStripSeparator2,
+            this._searchToolStripButton,
+            this._resetSearchToolStripButton});
             this.пассажирBindingNavigator.Location = new System.Drawing.Point(0, 24);
             this.пассажирBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.пассажирBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -204,30 +212,12 @@
             this.пассажирBindingNavigator.TabIndex = 1;
             this.пассажирBindingNavigator.Text = "bindingNavigator1";
             // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Добавить";
-            // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
             this.bindingNavigatorCountItem.Size = new System.Drawing.Size(43, 22);
             this.bindingNavigatorCountItem.Text = "для {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Общее число элементов";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Удалить";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -289,6 +279,39 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // _addToolStripButton
+            // 
+            this._addToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this._addToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("_addToolStripButton.Image")));
+            this._addToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._addToolStripButton.Name = "_addToolStripButton";
+            this._addToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this._addToolStripButton.Text = "toolStripButton1";
+            this._addToolStripButton.ToolTipText = "Добавить данные о пассажире";
+            this._addToolStripButton.Click += new System.EventHandler(this._addToolStripButton_Click);
+            // 
+            // _changeToolStripButton
+            // 
+            this._changeToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this._changeToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("_changeToolStripButton.Image")));
+            this._changeToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._changeToolStripButton.Name = "_changeToolStripButton";
+            this._changeToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this._changeToolStripButton.Text = "toolStripButton1";
+            this._changeToolStripButton.ToolTipText = "Изменить данные о пассажире";
+            this._changeToolStripButton.Click += new System.EventHandler(this._changeToolStripButton_Click);
+            // 
+            // _deleteToolStripButton
+            // 
+            this._deleteToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this._deleteToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("_deleteToolStripButton.Image")));
+            this._deleteToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._deleteToolStripButton.Name = "_deleteToolStripButton";
+            this._deleteToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this._deleteToolStripButton.Text = "toolStripButton1";
+            this._deleteToolStripButton.ToolTipText = "Удалить данные о пассажире";
+            this._deleteToolStripButton.Click += new System.EventHandler(this._deleteToolStripButton_Click);
+            // 
             // пассажирBindingNavigatorSaveItem
             // 
             this.пассажирBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -297,6 +320,33 @@
             this.пассажирBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.пассажирBindingNavigatorSaveItem.Text = "Сохранить данные";
             this.пассажирBindingNavigatorSaveItem.Click += new System.EventHandler(this.пассажирBindingNavigatorSaveItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // _searchToolStripButton
+            // 
+            this._searchToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this._searchToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("_searchToolStripButton.Image")));
+            this._searchToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._searchToolStripButton.Name = "_searchToolStripButton";
+            this._searchToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this._searchToolStripButton.Text = "toolStripButton1";
+            this._searchToolStripButton.ToolTipText = "Поиск пассажиров";
+            this._searchToolStripButton.Click += new System.EventHandler(this._searchToolStripButton_Click);
+            // 
+            // _resetSearchToolStripButton
+            // 
+            this._resetSearchToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this._resetSearchToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("_resetSearchToolStripButton.Image")));
+            this._resetSearchToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._resetSearchToolStripButton.Name = "_resetSearchToolStripButton";
+            this._resetSearchToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this._resetSearchToolStripButton.Text = "toolStripButton1";
+            this._resetSearchToolStripButton.ToolTipText = "Сбросить результаты поиска";
+            this._resetSearchToolStripButton.Click += new System.EventHandler(this._resetSearchToolStripButton_Click);
             // 
             // пассажирDataGridView
             // 
@@ -429,9 +479,7 @@
         private AirportDataBaseDataSetTableAdapters.ПассажирTableAdapter пассажирTableAdapter;
         private AirportDataBaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.BindingNavigator пассажирBindingNavigator;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
@@ -460,5 +508,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.ToolStripButton _addToolStripButton;
+        private System.Windows.Forms.ToolStripButton _changeToolStripButton;
+        private System.Windows.Forms.ToolStripButton _deleteToolStripButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripButton _searchToolStripButton;
+        private System.Windows.Forms.ToolStripButton _resetSearchToolStripButton;
     }
 }

@@ -64,7 +64,7 @@
             this._passportSeriesMaskedTextBox.Location = new System.Drawing.Point(153, 41);
             this._passportSeriesMaskedTextBox.Mask = "0000";
             this._passportSeriesMaskedTextBox.Name = "_passportSeriesMaskedTextBox";
-            this._passportSeriesMaskedTextBox.Size = new System.Drawing.Size(150, 20);
+            this._passportSeriesMaskedTextBox.Size = new System.Drawing.Size(35, 20);
             this._passportSeriesMaskedTextBox.TabIndex = 2;
             // 
             // _passportNumberMaskedTextBox
@@ -72,7 +72,7 @@
             this._passportNumberMaskedTextBox.Location = new System.Drawing.Point(153, 67);
             this._passportNumberMaskedTextBox.Mask = "000000";
             this._passportNumberMaskedTextBox.Name = "_passportNumberMaskedTextBox";
-            this._passportNumberMaskedTextBox.Size = new System.Drawing.Size(150, 20);
+            this._passportNumberMaskedTextBox.Size = new System.Drawing.Size(47, 20);
             this._passportNumberMaskedTextBox.TabIndex = 3;
             // 
             // _surnameTextBox
@@ -99,9 +99,9 @@
             // _birthDateMaskedTextBox
             // 
             this._birthDateMaskedTextBox.Location = new System.Drawing.Point(153, 171);
-            this._birthDateMaskedTextBox.Mask = "00/00/0000 90:00";
+            this._birthDateMaskedTextBox.Mask = "00/00/0000";
             this._birthDateMaskedTextBox.Name = "_birthDateMaskedTextBox";
-            this._birthDateMaskedTextBox.Size = new System.Drawing.Size(150, 20);
+            this._birthDateMaskedTextBox.Size = new System.Drawing.Size(70, 20);
             this._birthDateMaskedTextBox.TabIndex = 7;
             this._birthDateMaskedTextBox.ValidatingType = typeof(System.DateTime);
             // 
@@ -109,11 +109,11 @@
             // 
             this._genderComboBox.FormattingEnabled = true;
             this._genderComboBox.Items.AddRange(new object[] {
-            "муж",
-            "жен"});
+            "мужской",
+            "женский"});
             this._genderComboBox.Location = new System.Drawing.Point(153, 197);
             this._genderComboBox.Name = "_genderComboBox";
-            this._genderComboBox.Size = new System.Drawing.Size(55, 21);
+            this._genderComboBox.Size = new System.Drawing.Size(70, 21);
             this._genderComboBox.TabIndex = 8;
             // 
             // _okButton

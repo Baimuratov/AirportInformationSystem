@@ -198,7 +198,7 @@
             this.label1.Size = new System.Drawing.Size(139, 169);
             this.label1.TabIndex = 8;
             this.label1.Text = "Номер\r\n\r\nИдентификатор самолёта\r\n\r\nДата отправления\r\n\r\nДата прибытия\r\n\r\nПункты по" +
-    "садки\r\n\r\nПункт назначения\r\n\r\nСтоимость билета";
+    "садки\r\n\r\nНазначение\r\n\r\nСтоимость билета";
             // 
             // _passengerGroupBox
             // 
@@ -267,11 +267,11 @@
             // 
             this._genderComboBox.FormattingEnabled = true;
             this._genderComboBox.Items.AddRange(new object[] {
-            "муж",
-            "жен"});
+            "мужской",
+            "женский"});
             this._genderComboBox.Location = new System.Drawing.Point(159, 200);
             this._genderComboBox.Name = "_genderComboBox";
-            this._genderComboBox.Size = new System.Drawing.Size(55, 21);
+            this._genderComboBox.Size = new System.Drawing.Size(70, 21);
             this._genderComboBox.TabIndex = 17;
             // 
             // _birthDateMaskedTextBox

@@ -24,8 +24,8 @@ namespace AirportInformationSystem
             _row = row;
 
             _planeNameTextBox.MaxLength = _table.Идентификатор_самолётаColumn.MaxLength;
-            _embarkationsTextBox.MaxLength = _table.Пункты_посадкиColumn.MaxLength;
-            _destinationTextBox.MaxLength = _table.Пункт_назначенияColumn.MaxLength;
+            _embarkationsTextBox.MaxLength = _table.ПосадкиColumn.MaxLength;
+            _destinationTextBox.MaxLength = _table.НазначениеColumn.MaxLength;
 
             if (_row != null)
             {
@@ -33,8 +33,8 @@ namespace AirportInformationSystem
                 _planeNameTextBox.Text = _row.Field<string>("Идентификатор самолёта");
                 _departureMaskedTextBox.Text = _row.IsNull("Дата отправления") ? null : _row.Field<DateTime>("Дата отправления").ToString();
                 _arrivalMaskedTextBox.Text = _row.IsNull("Дата прибытия") ? null : _row.Field<DateTime>("Дата прибытия").ToString();
-                _embarkationsTextBox.Text = _row.Field<string>("Пункты посадки");
-                _destinationTextBox.Text = _row.Field<string>("Пункт назначения");
+                _embarkationsTextBox.Text = _row.Field<string>("Посадки");
+                _destinationTextBox.Text = _row.Field<string>("Назначение");
                 _ticketPriceTextBox.Text = _row.IsNull("Стоимость билета") ? null : _row.Field<decimal>("Стоимость билета").ToString();
             }
         }
@@ -132,8 +132,8 @@ namespace AirportInformationSystem
                 _row.SetField<object>("Идентификатор самолёта", planeName);
                 _row.SetField<object>("Дата отправления", departure);
                 _row.SetField<object>("Дата прибытия", arrival);
-                _row.SetField<object>("Пункты посадки", embarkations);
-                _row.SetField<object>("Пункт назначения", destination);
+                _row.SetField<object>("Посадки", embarkations);
+                _row.SetField<object>("Назначение", destination);
                 _row.SetField<object>("Стоимость билета", ticketPrice);
             }
             else
@@ -150,8 +150,8 @@ namespace AirportInformationSystem
                 {
                     _row.Дата_прибытия = (DateTime)arrival;
                 }
-                _row.Пункты_посадки = (string)embarkations;
-                _row.Пункт_назначения = (string)destination;
+                _row.Посадки = (string)embarkations;
+                _row.Назначение = (string)destination;
                 if (ticketPrice != null)
                 {
                     _row.Стоимость_билета = (decimal)ticketPrice;

@@ -47,6 +47,7 @@ namespace AirportInformationSystem
         private void AppendPassenger()
         {
             EditPassengerForm additionPassenger = new EditPassengerForm(airportDataBaseDataSet.Пассажир);
+            additionPassenger.Text = "Добавление данных о пассажире";
             additionPassenger.ShowDialog();
         }
 
@@ -56,6 +57,7 @@ namespace AirportInformationSystem
             {
                 DataRowView rowView = (DataRowView)пассажирDataGridView.SelectedCells[0].OwningRow.DataBoundItem;
                 EditPassengerForm changePassenger = new EditPassengerForm(airportDataBaseDataSet.Пассажир, (AirportDataBaseDataSet.ПассажирRow)rowView.Row);
+                changePassenger.Text = "Изменение данных о пассажире";
                 changePassenger.ShowDialog();
             }
         }
@@ -197,6 +199,32 @@ namespace AirportInformationSystem
                     удалитьToolStripMenuItem.Enabled = false;
                 }
             }
+        }
+
+        private void _addToolStripButton_Click(object sender, EventArgs e)
+        {
+            AppendPassenger();
+        }
+
+        private void _changeToolStripButton_Click(object sender, EventArgs e)
+        {
+            ChangePassenger();
+        }
+
+        private void _deleteToolStripButton_Click(object sender, EventArgs e)
+        {
+            DeletePassenger();
+        }
+
+        private void _searchToolStripButton_Click(object sender, EventArgs e)
+        {
+            MainForm mainForm = (MainForm)Owner;
+            mainForm.Search(TableName.Passenger);
+        }
+
+        private void _resetSearchToolStripButton_Click(object sender, EventArgs e)
+        {
+            пассажирBindingSource.RemoveFilter();
         }
     }
 }

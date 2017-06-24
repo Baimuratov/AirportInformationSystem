@@ -113,7 +113,7 @@ namespace AirportInformationSystem
                     {
                         FilterExpression += "AND ";
                     }
-                    FilterExpression += string.Format("[Пункты посадки] LIKE '*{0}*' ", _embarkationsTextBox.Text);
+                    FilterExpression += string.Format("[Посадки] LIKE '*{0}*' ", _embarkationsTextBox.Text);
                 }
                 if (_destinationTextBox.Text != string.Empty)
                 {
@@ -121,7 +121,7 @@ namespace AirportInformationSystem
                     {
                         FilterExpression += "AND ";
                     }
-                    FilterExpression += string.Format("[Пункт назначения] LIKE '*{0}*' ", _destinationTextBox.Text);
+                    FilterExpression += string.Format("[Назначение] LIKE '*{0}*' ", _destinationTextBox.Text);
                 }
                 if (_ticketPriceTextBox.Text != string.Empty)
                 {
@@ -217,7 +217,7 @@ namespace AirportInformationSystem
                     {
                         FilterExpression += "AND ";
                     }
-                    FilterExpression += string.Format("[Пол] = '{0}'", _genderComboBox.SelectedItem);
+                    FilterExpression += string.Format("[Пол] = '{0}'", _genderComboBox.Text == "мужской" ? "м" : "ж");
                 }
                 //MessageBox.Show(FilterExpression);
             }

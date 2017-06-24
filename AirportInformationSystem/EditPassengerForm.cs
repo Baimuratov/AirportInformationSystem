@@ -36,7 +36,7 @@ namespace AirportInformationSystem
                 _nameTextBox.Text = _row.Field<string>("Имя");
                 _patronymicTextBox.Text = _row.Field<string>("Отчество");
                 _birthDateMaskedTextBox.Text = _row.IsNull("Дата рождения") ? null : _row.Field<DateTime>("Дата рождения").ToString();
-                _genderComboBox.Text = _row.Field<string>("Пол");
+                _genderComboBox.Text = _row.Field<string>("Пол") == "м" ? "мужской" : "женский";
             }
             _genderComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
         }
@@ -115,7 +115,11 @@ namespace AirportInformationSystem
             }
 
             // Проверка пола
-            gender = _genderComboBox.Text != string.Empty ? _genderComboBox.Text : null;
+            //gender = _genderComboBox.Text != string.Empty ? _genderComboBox.Text : null;
+            if (_genderComboBox.Text != string.Empty)
+            {
+                gender = _genderComboBox.Text == "мужской" ? "м" : "ж";
+            }
 
             if (_row != null)
             {
