@@ -68,7 +68,15 @@ namespace AirportInformationSystem
             textBox.Modified = false;
         }
 
-        public static bool CheckDate(string verifiableText, ref object variable, string name)
+        /// <summary>
+        /// Проверяет текстовое представление даты со временем,
+        /// отображая сообщение об ошибке при неправильном формате
+        /// </summary>
+        /// <param name="verifiableText">Проверяемый текст</param>
+        /// <param name="variable">Переменная, в которую конвертируется дата и время из текстового представления</param>
+        /// <param name="name">Имя проверяемого значения в сообщении об ошибке</param>
+        /// <returns></returns>
+        public static bool CheckDateTime(string verifiableText, ref object variable, string name)
         {
             if (verifiableText == "  .  .       :")
             {

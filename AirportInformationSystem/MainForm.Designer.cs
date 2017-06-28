@@ -92,7 +92,7 @@
             this.поискToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(841, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(807, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -230,7 +230,7 @@
             this.авиарейсDataGridView.Location = new System.Drawing.Point(12, 52);
             this.авиарейсDataGridView.Name = "авиарейсDataGridView";
             this.авиарейсDataGridView.ReadOnly = true;
-            this.авиарейсDataGridView.Size = new System.Drawing.Size(817, 429);
+            this.авиарейсDataGridView.Size = new System.Drawing.Size(783, 429);
             this.авиарейсDataGridView.TabIndex = 0;
             this.авиарейсDataGridView.CellStateChanged += new System.Windows.Forms.DataGridViewCellStateChangedEventHandler(this.авиарейсDataGridView_CellStateChanged);
             this.авиарейсDataGridView.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.авиарейсDataGridView_RowStateChanged);
@@ -349,7 +349,7 @@
             this.авиарейсBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.авиарейсBindingNavigator.Name = "авиарейсBindingNavigator";
             this.авиарейсBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.авиарейсBindingNavigator.Size = new System.Drawing.Size(841, 25);
+            this.авиарейсBindingNavigator.Size = new System.Drawing.Size(807, 25);
             this.авиарейсBindingNavigator.TabIndex = 2;
             this.авиарейсBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -493,14 +493,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(841, 493);
+            this.ClientSize = new System.Drawing.Size(807, 493);
             this.Controls.Add(this.авиарейсDataGridView);
             this.Controls.Add(this.авиарейсBindingNavigator);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Авиарейсы";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);

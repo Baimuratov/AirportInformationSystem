@@ -1,26 +1,42 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AirportInformationSystem
 {
+    /// <summary>
+    /// Имя таблицы базы данных, в которой будет производится поиск
+    /// </summary>
     public enum TableName
     {
+        /// <summary>
+        /// Авиарейс
+        /// </summary>
         Flight,
+        /// <summary>
+        /// Пассажир
+        /// </summary>
         Passenger,
     }
+
+    /// <summary>
+    /// Форма поиска данных
+    /// </summary>
     public partial class SearchForm : Form
     {
+        /// <summary>
+        /// Имя таблицы базы данных, в которой будет производится поиск
+        /// </summary>
         public TableName Table { get; set; }
 
+        /// <summary>
+        /// Выражение фильтра, которое составляется из значений, введённых в полях формы
+        /// </summary>
         public string FilterExpression { get; set; }
 
+        /// <summary>
+        /// Инициализирует новый экземпляр класса AirportInformationSystem.SearchForm
+        /// </summary>
+        /// <param name="tableName">Имя таблицы базы данных, в которой будет производится поиск</param>
         public SearchForm(TableName tableName)
         {
             InitializeComponent();
@@ -57,12 +73,21 @@ namespace AirportInformationSystem
             _genderComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
+        /// <summary>
+        /// Обрабатывает событие нажатие кнопки _findButton:
+        /// присваивает свойству FilterExpression строку, 
+        /// которая составлена из значений, введённых в полях формы
+        /// </summary>
+        /// <param name="sender">Объект, создавший событие</param>
+        /// <param name="e">Аргументы события</param>
         private void _findButton_Click(object sender, EventArgs e)
         {
             FilterExpression = string.Empty;
 
             if (_flightRadioButton.Checked)
             {
+                // Составление выражения фильтрации таблицы "Авиарейс"
+
                 if (_idTextBox.Text != string.Empty)
                 {
                     FilterExpression += string.Format("[Номер рейса] {0} {1} ", _idComboBox.SelectedItem, _idTextBox.Text);
@@ -131,10 +156,12 @@ namespace AirportInformationSystem
                     }
                     FilterExpression += string.Format("[Стоимость билета] {0} {1}", _ticketPriceComboBox.SelectedItem, _ticketPriceTextBox.Text);
                 }
-                //MessageBox.Show(FilterExpression);
             }
+
             else
             {
+                // Составление выражения фильтрации таблицы "Пассажир"
+
                 if (_flightIdTextBox.Text != string.Empty)
                 {
                     FilterExpression += string.Format("[Номер рейса] {0} {1} ", _flightIdComboBox.SelectedItem, _flightIdTextBox.Text);
@@ -195,7 +222,7 @@ namespace AirportInformationSystem
                     }
                     FilterExpression += string.Format("[Отчество] LIKE '*{0}*' ", _patronymicTextBox.Text);
                 }
-                if (_birthDateMaskedTextBox.Text != "  .  .       :")
+                if (_birthDateMaskedTextBox.Text != "  .  .")
                 {
                     if (_birthDateMaskedTextBox.MaskCompleted)
                     {
@@ -219,11 +246,16 @@ namespace AirportInformationSystem
                     }
                     FilterExpression += string.Format("[Пол] = '{0}'", _genderComboBox.Text == "мужской" ? "м" : "ж");
                 }
-                //MessageBox.Show(FilterExpression);
             }
             DialogResult = DialogResult.OK;
         }
 
+        /// <summary>
+        /// Обрабатывает событие переключение кнопки _flightRadioButton:
+        /// перенастраивает форму на поиск авиарейсов
+        /// </summary>
+        /// <param name="sender">Объект, создавший событие</param>
+        /// <param name="e">Аргументы события</param>
         private void _flightRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             if (_flightRadioButton.Checked)
@@ -240,6 +272,12 @@ namespace AirportInformationSystem
             }
         }
 
+        /// <summary>
+        /// Обрабатывает событие переключение кнопки _passengerRadioButton:
+        /// перенастраивает форму на поиск пассажиров
+        /// </summary>
+        /// <param name="sender">Объект, создавший событие</param>
+        /// <param name="e">Аргументы события</param>
         private void _passengerRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             if (_passengerRadioButton.Checked)
@@ -256,29 +294,53 @@ namespace AirportInformationSystem
             }
         }
 
+        /// <summary>
+        /// Обрабатывает событие изменение текста в поле _idTextBox:
+        /// оставляет в тексте только допустимые символы
+        /// </summary>
+        /// <param name="sender">Объект, создавший событие</param>
+        /// <param name="e">Аргументы события</param>
         private void _idTextBox_TextChanged(object sender, EventArgs e)
         {
             // Если текстовое поле изменено пользователем
             if (_idTextBox.Modified)
             {
                 // выполнить фильтрацию текста, оставив только символы
-                // представляющие натуральное или дробное число
+                // представляющие целое беззнаковое число
                 Verification.FilterInt(ref _idTextBox);
             }
         }
 
+        /// <summary>
+        /// Обрабатывает событие изменение текста в поле _ticketPriceTextBox:
+        /// оставляет в тексте только допустимые символы
+        /// </summary>
+        /// <param name="sender">Объект, создавший событие</param>
+        /// <param name="e">Аргументы события</param>
         private void _ticketPriceTextBox_TextChanged(object sender, EventArgs e)
         {
+            // Если текстовое поле изменено пользователем
             if (_ticketPriceTextBox.Modified)
             {
+                // выполнить фильтрацию текста, оставив только символы
+                // представляющие натуральное или дробное число
                 Verification.FilterDouble(ref _ticketPriceTextBox);
             }
         }
 
+        /// <summary>
+        /// Обрабатывает событие изменение текста в поле _flightIdTextBox:
+        /// оставляет в тексте только допустимые символы
+        /// </summary>
+        /// <param name="sender">Объект, создавший событие</param>
+        /// <param name="e">Аргументы события</param>
         private void _flightIdTextBox_TextChanged(object sender, EventArgs e)
         {
+            // Если текстовое поле изменено пользователем
             if (_flightIdTextBox.Modified)
             {
+                // выполнить фильтрацию текста, оставив только символы
+                // представляющие целое беззнаковое число
                 Verification.FilterInt(ref _flightIdTextBox);
             }
         }

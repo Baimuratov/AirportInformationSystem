@@ -1,21 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AirportInformationSystem
 {
+    /// <summary>
+    /// Форма добавления/изменения данных об авиарейсе
+    /// </summary>
     public partial class EditFlightForm : Form
     {
-        private AirportDataBaseDataSet.АвиарейсDataTable _table;
+        /// <summary>
+        /// Таблица, в которой добавляются/изменяются данные об авиарейсе
+        /// </summary>
+        private readonly AirportDataBaseDataSet.АвиарейсDataTable _table;
 
+        /// <summary>
+        /// Строка, которая будет добавлена в таблицу, или изменяемая строка из таблицы
+        /// </summary>
         private AirportDataBaseDataSet.АвиарейсRow _row;
 
+        /// <summary>
+        /// Инициализирует новый экземпляр класса AirportInformationSystem.EditFlightForm
+        /// </summary>
+        /// <param name="table">Таблица, в которой добавляются/изменяются данные об авиарейсе</param>
+        /// <param name="row">Изменяемая строка, если параметр не задан, это означает, что в table нужно добавить новую строку</param>
         public EditFlightForm(AirportDataBaseDataSet.АвиарейсDataTable table, AirportDataBaseDataSet.АвиарейсRow row = null)
         {
             InitializeComponent();
@@ -39,8 +47,17 @@ namespace AirportInformationSystem
             }
         }
 
+        /// <summary>
+        /// Обрабатывает событие нажатие кнопки _okButton:
+        /// заносит данные введённые в текстовых полях в базу данных
+        /// </summary>
+        /// <param name="sender">Объект, создавший событие</param>
+        /// <param name="e">Аргументы события</param>
         private void _okButton_Click(object sender, EventArgs e)
         {
+            // Переменные, в которых хранятся сконвертированные значения из полей,
+            // пока не закончилась проверка всех введённых данных. 
+            // Общий тип object выбран потому что не все типы (int, DateTime) допускают значение null
             object id = null;
             object planeName = null;
             object departure = null;
@@ -72,13 +89,13 @@ namespace AirportInformationSystem
             }
 
             // Проверка даты отправления
-            if (!Verification.CheckDate(_departureMaskedTextBox.Text, ref departure, "Дата отправления"))
+            if (!Verification.CheckDateTime(_departureMaskedTextBox.Text, ref departure, "Дата отправления"))
             {
                 return;
             }
 
             // Проверка даты прибытия
-            if (!Verification.CheckDate(_arrivalMaskedTextBox.Text, ref arrival, "Дата прибытия"))
+            if (!Verification.CheckDateTime(_arrivalMaskedTextBox.Text, ref arrival, "Дата прибытия"))
             {
                 return;
             }
@@ -117,7 +134,8 @@ namespace AirportInformationSystem
                     return;
                 }
             }
-
+            
+            // Изменяемая строка из таблицы
             if (_row != null)
             {
                 try
@@ -136,6 +154,8 @@ namespace AirportInformationSystem
                 _row.SetField<object>("Назначение", destination);
                 _row.SetField<object>("Стоимость билета", ticketPrice);
             }
+            
+            // Добавляемая в таблицу строка
             else
             {
                 _row = _table.NewАвиарейсRow();
@@ -169,21 +189,36 @@ namespace AirportInformationSystem
             Close();
         }
 
+        /// <summary>
+        /// Обрабатывает событие изменение текста в поле _idTextBox:
+        /// оставляет в тексте только допустимые символы
+        /// </summary>
+        /// <param name="sender">Объект, создавший событие</param>
+        /// <param name="e">Аргументы события</param>
         private void _idTextBox_TextChanged(object sender, EventArgs e)
         {
             // Если текстовое поле изменено пользователем
             if (_idTextBox.Modified)
             {
                 // выполнить фильтрацию текста, оставив только символы
-                // представляющие натуральное или дробное число
+                // представляющие целое беззнаковое число
                 Verification.FilterInt(ref _idTextBox);
             }
         }
 
+        /// <summary>
+        /// Обрабатывает событие изменение текста в поле _ticketPriceTextBox:
+        /// оставляет в тексте только допустимые символы
+        /// </summary>
+        /// <param name="sender">Объект, создавший событие</param>
+        /// <param name="e">Аргументы события</param>
         private void _ticketPriceTextBox_TextChanged(object sender, EventArgs e)
         {
+            // Если текстовое поле изменено пользователем
             if (_ticketPriceTextBox.Modified)
             {
+                // выполнить фильтрацию текста, оставив только символы
+                // представляющие натуральное или дробное число
                 Verification.FilterDouble(ref _ticketPriceTextBox);
             }
         }

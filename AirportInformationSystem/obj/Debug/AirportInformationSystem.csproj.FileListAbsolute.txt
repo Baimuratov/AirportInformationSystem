@@ -1,14 +1,13 @@
-c:\users\admin\documents\visual studio 2015\Projects\AirportInformationSystem\AirportInformationSystem\bin\Debug\AirportInformationSystem.exe.config
 c:\users\admin\documents\visual studio 2015\Projects\AirportInformationSystem\AirportInformationSystem\bin\Debug\AirportDataBase.mdb
-c:\users\admin\documents\visual studio 2015\Projects\AirportInformationSystem\AirportInformationSystem\bin\Debug\AirportInformationSystem.exe
-c:\users\admin\documents\visual studio 2015\Projects\AirportInformationSystem\AirportInformationSystem\bin\Debug\AirportInformationSystem.pdb
 c:\users\admin\documents\visual studio 2015\Projects\AirportInformationSystem\AirportInformationSystem\obj\Debug\AirportInformationSystem.MainForm.resources
 c:\users\admin\documents\visual studio 2015\Projects\AirportInformationSystem\AirportInformationSystem\obj\Debug\AirportInformationSystem.Properties.Resources.resources
 c:\users\admin\documents\visual studio 2015\Projects\AirportInformationSystem\AirportInformationSystem\obj\Debug\AirportInformationSystem.csproj.GenerateResource.Cache
-c:\users\admin\documents\visual studio 2015\Projects\AirportInformationSystem\AirportInformationSystem\obj\Debug\AirportInformationSystem.exe
-c:\users\admin\documents\visual studio 2015\Projects\AirportInformationSystem\AirportInformationSystem\obj\Debug\AirportInformationSystem.pdb
 c:\Users\Admin\Documents\Visual Studio 2015\Projects\AirportInformationSystem\AirportInformationSystem\obj\Debug\AirportInformationSystem.EditFlightForm.resources
-C:\Users\Admin\Documents\Visual Studio 2015\Projects\AirportInformationSystem\AirportInformationSystem\obj\Debug\AirportInformationSystem.csprojResolveAssemblyReference.cache
 C:\Users\Admin\documents\visual studio 2015\Projects\AirportInformationSystem\AirportInformationSystem\obj\Debug\AirportInformationSystem.EditPassengerForm.resources
 C:\Users\Admin\documents\visual studio 2015\Projects\AirportInformationSystem\AirportInformationSystem\obj\Debug\AirportInformationSystem.PassengersForm.resources
 C:\Users\Admin\documents\visual studio 2015\Projects\AirportInformationSystem\AirportInformationSystem\obj\Debug\AirportInformationSystem.SearchForm.resources
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\AirportInformationSystem\AirportInformationSystem\bin\Debug\Справочная система аэропорта.exe.config
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\AirportInformationSystem\AirportInformationSystem\bin\Debug\Справочная система аэропорта.exe
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\AirportInformationSystem\AirportInformationSystem\bin\Debug\Справочная система аэропорта.pdb
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\AirportInformationSystem\AirportInformationSystem\obj\Debug\Справочная система аэропорта.exe
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\AirportInformationSystem\AirportInformationSystem\obj\Debug\Справочная система аэропорта.pdb

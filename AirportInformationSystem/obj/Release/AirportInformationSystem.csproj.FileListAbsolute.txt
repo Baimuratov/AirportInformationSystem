@@ -1,0 +1,14 @@
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\AirportInformationSystem\AirportInformationSystem\bin\Release\Справочная система аэропорта.exe.config
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\AirportInformationSystem\AirportInformationSystem\bin\Release\AirportDataBase.mdb
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\AirportInformationSystem\AirportInformationSystem\bin\Release\Справочная система аэропорта.exe
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\AirportInformationSystem\AirportInformationSystem\bin\Release\Справочная система аэропорта.pdb
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\AirportInformationSystem\AirportInformationSystem\obj\Release\AirportInformationSystem.EditFlightForm.resources
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\AirportInformationSystem\AirportInformationSystem\obj\Release\AirportInformationSystem.EditPassengerForm.resources
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\AirportInformationSystem\AirportInformationSystem\obj\Release\AirportInformationSystem.MainForm.resources
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\AirportInformationSystem\AirportInformationSystem\obj\Release\AirportInformationSystem.PassengersForm.resources
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\AirportInformationSystem\AirportInformationSystem\obj\Release\AirportInformationSystem.Properties.Resources.resources
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\AirportInformationSystem\AirportInformationSystem\obj\Release\AirportInformationSystem.SearchForm.resources
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\AirportInformationSystem\AirportInformationSystem\obj\Release\AirportInformationSystem.csproj.GenerateResource.Cache
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\AirportInformationSystem\AirportInformationSystem\obj\Release\Справочная система аэропорта.exe
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\AirportInformationSystem\AirportInformationSystem\obj\Release\Справочная система аэропорта.pdb
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\AirportInformationSystem\AirportInformationSystem\obj\Release\AirportInformationSystem.csprojResolveAssemblyReference.cache
