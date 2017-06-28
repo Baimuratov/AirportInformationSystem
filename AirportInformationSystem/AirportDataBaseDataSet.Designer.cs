@@ -325,13 +325,13 @@ namespace AirportInformationSystem {
             
             private global::System.Data.DataColumn columnИдентификатор_самолёта;
             
-            private global::System.Data.DataColumn columnДата_отправки;
+            private global::System.Data.DataColumn columnДата_отправления;
             
             private global::System.Data.DataColumn columnДата_прибытия;
             
-            private global::System.Data.DataColumn columnПункты_посадки;
+            private global::System.Data.DataColumn columnПосадки;
             
-            private global::System.Data.DataColumn columnПункт_назначения;
+            private global::System.Data.DataColumn columnНазначение;
             
             private global::System.Data.DataColumn columnСтоимость_билета;
             
@@ -386,9 +386,9 @@ namespace AirportInformationSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Дата_отправкиColumn {
+            public global::System.Data.DataColumn Дата_отправленияColumn {
                 get {
-                    return this.columnДата_отправки;
+                    return this.columnДата_отправления;
                 }
             }
             
@@ -402,17 +402,17 @@ namespace AirportInformationSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Пункты_посадкиColumn {
+            public global::System.Data.DataColumn ПосадкиColumn {
                 get {
-                    return this.columnПункты_посадки;
+                    return this.columnПосадки;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Пункт_назначенияColumn {
+            public global::System.Data.DataColumn НазначениеColumn {
                 get {
-                    return this.columnПункт_назначения;
+                    return this.columnНазначение;
                 }
             }
             
@@ -461,15 +461,15 @@ namespace AirportInformationSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public АвиарейсRow AddАвиарейсRow(int Номер_рейса, string Идентификатор_самолёта, System.DateTime Дата_отправки, System.DateTime Дата_прибытия, string Пункты_посадки, string Пункт_назначения, decimal Стоимость_билета) {
+            public АвиарейсRow AddАвиарейсRow(int Номер_рейса, string Идентификатор_самолёта, System.DateTime Дата_отправления, System.DateTime Дата_прибытия, string Посадки, string Назначение, decimal Стоимость_билета) {
                 АвиарейсRow rowАвиарейсRow = ((АвиарейсRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Номер_рейса,
                         Идентификатор_самолёта,
-                        Дата_отправки,
+                        Дата_отправления,
                         Дата_прибытия,
-                        Пункты_посадки,
-                        Пункт_назначения,
+                        Посадки,
+                        Назначение,
                         Стоимость_билета};
                 rowАвиарейсRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowАвиарейсRow);
@@ -502,10 +502,10 @@ namespace AirportInformationSystem {
             internal void InitVars() {
                 this.columnНомер_рейса = base.Columns["Номер рейса"];
                 this.columnИдентификатор_самолёта = base.Columns["Идентификатор самолёта"];
-                this.columnДата_отправки = base.Columns["Дата отправки"];
+                this.columnДата_отправления = base.Columns["Дата отправления"];
                 this.columnДата_прибытия = base.Columns["Дата прибытия"];
-                this.columnПункты_посадки = base.Columns["Пункты посадки"];
-                this.columnПункт_назначения = base.Columns["Пункт назначения"];
+                this.columnПосадки = base.Columns["Посадки"];
+                this.columnНазначение = base.Columns["Назначение"];
                 this.columnСтоимость_билета = base.Columns["Стоимость билета"];
             }
             
@@ -516,14 +516,14 @@ namespace AirportInformationSystem {
                 base.Columns.Add(this.columnНомер_рейса);
                 this.columnИдентификатор_самолёта = new global::System.Data.DataColumn("Идентификатор самолёта", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnИдентификатор_самолёта);
-                this.columnДата_отправки = new global::System.Data.DataColumn("Дата отправки", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnДата_отправки);
+                this.columnДата_отправления = new global::System.Data.DataColumn("Дата отправления", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnДата_отправления);
                 this.columnДата_прибытия = new global::System.Data.DataColumn("Дата прибытия", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnДата_прибытия);
-                this.columnПункты_посадки = new global::System.Data.DataColumn("Пункты посадки", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnПункты_посадки);
-                this.columnПункт_назначения = new global::System.Data.DataColumn("Пункт назначения", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnПункт_назначения);
+                this.columnПосадки = new global::System.Data.DataColumn("Посадки", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnПосадки);
+                this.columnНазначение = new global::System.Data.DataColumn("Назначение", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnНазначение);
                 this.columnСтоимость_билета = new global::System.Data.DataColumn("Стоимость билета", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnСтоимость_билета);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
@@ -531,8 +531,8 @@ namespace AirportInformationSystem {
                 this.columnНомер_рейса.AllowDBNull = false;
                 this.columnНомер_рейса.Unique = true;
                 this.columnИдентификатор_самолёта.MaxLength = 50;
-                this.columnПункты_посадки.MaxLength = 255;
-                this.columnПункт_назначения.MaxLength = 50;
+                this.columnПосадки.MaxLength = 32676;
+                this.columnНазначение.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -902,7 +902,7 @@ namespace AirportInformationSystem {
                 this.columnФамилия.MaxLength = 50;
                 this.columnИмя.MaxLength = 50;
                 this.columnОтчество.MaxLength = 50;
-                this.columnПол.MaxLength = 3;
+                this.columnПол.MaxLength = 1;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1072,17 +1072,17 @@ namespace AirportInformationSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime Дата_отправки {
+            public System.DateTime Дата_отправления {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableАвиарейс.Дата_отправкиColumn]));
+                        return ((global::System.DateTime)(this[this.tableАвиарейс.Дата_отправленияColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Дата отправки\' в таблице \'Авиарейс\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Дата отправления\' в таблице \'Авиарейс\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableАвиарейс.Дата_отправкиColumn] = value;
+                    this[this.tableАвиарейс.Дата_отправленияColumn] = value;
                 }
             }
             
@@ -1104,33 +1104,33 @@ namespace AirportInformationSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Пункты_посадки {
+            public string Посадки {
                 get {
                     try {
-                        return ((string)(this[this.tableАвиарейс.Пункты_посадкиColumn]));
+                        return ((string)(this[this.tableАвиарейс.ПосадкиColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Пункты посадки\' в таблице \'Авиарейс\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Посадки\' в таблице \'Авиарейс\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableАвиарейс.Пункты_посадкиColumn] = value;
+                    this[this.tableАвиарейс.ПосадкиColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Пункт_назначения {
+            public string Назначение {
                 get {
                     try {
-                        return ((string)(this[this.tableАвиарейс.Пункт_назначенияColumn]));
+                        return ((string)(this[this.tableАвиарейс.НазначениеColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Пункт назначения\' в таблице \'Авиарейс\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Назначение\' в таблице \'Авиарейс\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableАвиарейс.Пункт_назначенияColumn] = value;
+                    this[this.tableАвиарейс.НазначениеColumn] = value;
                 }
             }
             
@@ -1164,14 +1164,14 @@ namespace AirportInformationSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsДата_отправкиNull() {
-                return this.IsNull(this.tableАвиарейс.Дата_отправкиColumn);
+            public bool IsДата_отправленияNull() {
+                return this.IsNull(this.tableАвиарейс.Дата_отправленияColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetДата_отправкиNull() {
-                this[this.tableАвиарейс.Дата_отправкиColumn] = global::System.Convert.DBNull;
+            public void SetДата_отправленияNull() {
+                this[this.tableАвиарейс.Дата_отправленияColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1188,26 +1188,26 @@ namespace AirportInformationSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsПункты_посадкиNull() {
-                return this.IsNull(this.tableАвиарейс.Пункты_посадкиColumn);
+            public bool IsПосадкиNull() {
+                return this.IsNull(this.tableАвиарейс.ПосадкиColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetПункты_посадкиNull() {
-                this[this.tableАвиарейс.Пункты_посадкиColumn] = global::System.Convert.DBNull;
+            public void SetПосадкиNull() {
+                this[this.tableАвиарейс.ПосадкиColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsПункт_назначенияNull() {
-                return this.IsNull(this.tableАвиарейс.Пункт_назначенияColumn);
+            public bool IsНазначениеNull() {
+                return this.IsNull(this.tableАвиарейс.НазначениеColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetПункт_назначенияNull() {
-                this[this.tableАвиарейс.Пункт_назначенияColumn] = global::System.Convert.DBNull;
+            public void SetНазначениеNull() {
+                this[this.tableАвиарейс.НазначениеColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1628,64 +1628,64 @@ namespace AirportInformationSystem.AirportDataBaseDataSetTableAdapters {
             tableMapping.DataSetTable = "Авиарейс";
             tableMapping.ColumnMappings.Add("Номер рейса", "Номер рейса");
             tableMapping.ColumnMappings.Add("Идентификатор самолёта", "Идентификатор самолёта");
-            tableMapping.ColumnMappings.Add("Дата отправки", "Дата отправки");
+            tableMapping.ColumnMappings.Add("Дата отправления", "Дата отправления");
             tableMapping.ColumnMappings.Add("Дата прибытия", "Дата прибытия");
-            tableMapping.ColumnMappings.Add("Пункты посадки", "Пункты посадки");
-            tableMapping.ColumnMappings.Add("Пункт назначения", "Пункт назначения");
+            tableMapping.ColumnMappings.Add("Посадки", "Посадки");
+            tableMapping.ColumnMappings.Add("Назначение", "Назначение");
             tableMapping.ColumnMappings.Add("Стоимость билета", "Стоимость билета");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `Авиарейс` WHERE ((`Номер рейса` = ?) AND ((? = 1 AND `Идентификатор самолёта` IS NULL) OR (`Идентификатор самолёта` = ?)) AND ((? = 1 AND `Дата отправки` IS NULL) OR (`Дата отправки` = ?)) AND ((? = 1 AND `Дата прибытия` IS NULL) OR (`Дата прибытия` = ?)) AND ((? = 1 AND `Пункты посадки` IS NULL) OR (`Пункты посадки` = ?)) AND ((? = 1 AND `Пункт назначения` IS NULL) OR (`Пункт назначения` = ?)) AND ((? = 1 AND `Стоимость билета` IS NULL) OR (`Стоимость билета` = ?)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `Авиарейс` WHERE ((`Номер рейса` = ?) AND ((? = 1 AND `Идентификатор самолёта` IS NULL) OR (`Идентификатор самолёта` = ?)) AND ((? = 1 AND `Дата отправления` IS NULL) OR (`Дата отправления` = ?)) AND ((? = 1 AND `Дата прибытия` IS NULL) OR (`Дата прибытия` = ?)) AND ((? = 1 AND `Посадки` IS NULL) OR (`Посадки` = ?)) AND ((? = 1 AND `Назначение` IS NULL) OR (`Назначение` = ?)) AND ((? = 1 AND `Стоимость билета` IS NULL) OR (`Стоимость билета` = ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Номер_рейса", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Номер рейса", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Идентификатор_самолёта", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Идентификатор самолёта", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Идентификатор_самолёта", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Идентификатор самолёта", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Дата_отправки", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Дата отправки", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Дата_отправки", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Дата отправки", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Дата_отправления", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Дата отправления", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Дата_отправления", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Дата отправления", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Дата_прибытия", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Дата прибытия", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Дата_прибытия", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Дата прибытия", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Пункты_посадки", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Пункты посадки", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Пункты_посадки", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Пункты посадки", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Пункт_назначения", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Пункт назначения", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Пункт_назначения", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Пункт назначения", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Посадки", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Посадки", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Посадки", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Посадки", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Назначение", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Назначение", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Назначение", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Назначение", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Стоимость_билета", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Стоимость билета", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Стоимость_билета", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Стоимость билета", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `Авиарейс` (`Номер рейса`, `Идентификатор самолёта`, `Дата отправки`," +
-                " `Дата прибытия`, `Пункты посадки`, `Пункт назначения`, `Стоимость билета`) VALU" +
-                "ES (?, ?, ?, ?, ?, ?, ?)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `Авиарейс` (`Номер рейса`, `Идентификатор самолёта`, `Дата отправлени" +
+                "я`, `Дата прибытия`, `Посадки`, `Назначение`, `Стоимость билета`) VALUES (?, ?, " +
+                "?, ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Номер_рейса", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Номер рейса", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Идентификатор_самолёта", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Идентификатор самолёта", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Дата_отправки", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Дата отправки", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Дата_отправления", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Дата отправления", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Дата_прибытия", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Дата прибытия", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Пункты_посадки", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Пункты посадки", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Пункт_назначения", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Пункт назначения", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Посадки", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Посадки", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Назначение", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Назначение", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Стоимость_билета", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Стоимость билета", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `Авиарейс` SET `Номер рейса` = ?, `Идентификатор самолёта` = ?, `Дата отправки` = ?, `Дата прибытия` = ?, `Пункты посадки` = ?, `Пункт назначения` = ?, `Стоимость билета` = ? WHERE ((`Номер рейса` = ?) AND ((? = 1 AND `Идентификатор самолёта` IS NULL) OR (`Идентификатор самолёта` = ?)) AND ((? = 1 AND `Дата отправки` IS NULL) OR (`Дата отправки` = ?)) AND ((? = 1 AND `Дата прибытия` IS NULL) OR (`Дата прибытия` = ?)) AND ((? = 1 AND `Пункты посадки` IS NULL) OR (`Пункты посадки` = ?)) AND ((? = 1 AND `Пункт назначения` IS NULL) OR (`Пункт назначения` = ?)) AND ((? = 1 AND `Стоимость билета` IS NULL) OR (`Стоимость билета` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `Авиарейс` SET `Номер рейса` = ?, `Идентификатор самолёта` = ?, `Дата отправления` = ?, `Дата прибытия` = ?, `Посадки` = ?, `Назначение` = ?, `Стоимость билета` = ? WHERE ((`Номер рейса` = ?) AND ((? = 1 AND `Идентификатор самолёта` IS NULL) OR (`Идентификатор самолёта` = ?)) AND ((? = 1 AND `Дата отправления` IS NULL) OR (`Дата отправления` = ?)) AND ((? = 1 AND `Дата прибытия` IS NULL) OR (`Дата прибытия` = ?)) AND ((? = 1 AND `Посадки` IS NULL) OR (`Посадки` = ?)) AND ((? = 1 AND `Назначение` IS NULL) OR (`Назначение` = ?)) AND ((? = 1 AND `Стоимость билета` IS NULL) OR (`Стоимость билета` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Номер_рейса", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Номер рейса", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Идентификатор_самолёта", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Идентификатор самолёта", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Дата_отправки", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Дата отправки", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Дата_отправления", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Дата отправления", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Дата_прибытия", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Дата прибытия", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Пункты_посадки", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Пункты посадки", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Пункт_назначения", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Пункт назначения", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Посадки", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Посадки", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Назначение", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Назначение", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Стоимость_билета", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Стоимость билета", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Номер_рейса", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Номер рейса", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Идентификатор_самолёта", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Идентификатор самолёта", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Идентификатор_самолёта", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Идентификатор самолёта", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Дата_отправки", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Дата отправки", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Дата_отправки", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Дата отправки", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Дата_отправления", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Дата отправления", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Дата_отправления", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Дата отправления", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Дата_прибытия", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Дата прибытия", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Дата_прибытия", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Дата прибытия", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Пункты_посадки", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Пункты посадки", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Пункты_посадки", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Пункты посадки", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Пункт_назначения", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Пункт назначения", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Пункт_назначения", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Пункт назначения", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Посадки", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Посадки", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Посадки", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Посадки", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Назначение", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Назначение", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Назначение", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Назначение", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Стоимость_билета", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Стоимость билета", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Стоимость_билета", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Стоимость билета", global::System.Data.DataRowVersion.Original, false, null));
         }
@@ -1703,8 +1703,8 @@ namespace AirportInformationSystem.AirportDataBaseDataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT [Номер рейса], [Идентификатор самолёта], [Дата отправки], [Дата прибытия]," +
-                " [Пункты посадки], [Пункт назначения], [Стоимость билета] FROM Авиарейс";
+            this._commandCollection[0].CommandText = "SELECT [Номер рейса], [Идентификатор самолёта], [Дата отправления], [Дата прибыти" +
+                "я], [Посадки], [Назначение], [Стоимость билета] FROM Авиарейс";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1765,7 +1765,7 @@ namespace AirportInformationSystem.AirportDataBaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Номер_рейса, string Original_Идентификатор_самолёта, global::System.Nullable<global::System.DateTime> Original_Дата_отправки, global::System.Nullable<global::System.DateTime> Original_Дата_прибытия, string Original_Пункты_посадки, string Original_Пункт_назначения, global::System.Nullable<decimal> Original_Стоимость_билета) {
+        public virtual int Delete(int Original_Номер_рейса, string Original_Идентификатор_самолёта, global::System.Nullable<global::System.DateTime> Original_Дата_отправления, global::System.Nullable<global::System.DateTime> Original_Дата_прибытия, string Original_Посадки, string Original_Назначение, global::System.Nullable<decimal> Original_Стоимость_билета) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Номер_рейса));
             if ((Original_Идентификатор_самолёта == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -1775,9 +1775,9 @@ namespace AirportInformationSystem.AirportDataBaseDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Идентификатор_самолёта));
             }
-            if ((Original_Дата_отправки.HasValue == true)) {
+            if ((Original_Дата_отправления.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((System.DateTime)(Original_Дата_отправки.Value));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((System.DateTime)(Original_Дата_отправления.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
@@ -1791,21 +1791,21 @@ namespace AirportInformationSystem.AirportDataBaseDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((Original_Пункты_посадки == null)) {
+            if ((Original_Посадки == null)) {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Пункты_посадки));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Посадки));
             }
-            if ((Original_Пункт_назначения == null)) {
+            if ((Original_Назначение == null)) {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_Пункт_назначения));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_Назначение));
             }
             if ((Original_Стоимость_билета.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
@@ -1835,7 +1835,7 @@ namespace AirportInformationSystem.AirportDataBaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int Номер_рейса, string Идентификатор_самолёта, global::System.Nullable<global::System.DateTime> Дата_отправки, global::System.Nullable<global::System.DateTime> Дата_прибытия, string Пункты_посадки, string Пункт_назначения, global::System.Nullable<decimal> Стоимость_билета) {
+        public virtual int Insert(int Номер_рейса, string Идентификатор_самолёта, global::System.Nullable<global::System.DateTime> Дата_отправления, global::System.Nullable<global::System.DateTime> Дата_прибытия, string Посадки, string Назначение, global::System.Nullable<decimal> Стоимость_билета) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Номер_рейса));
             if ((Идентификатор_самолёта == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -1843,8 +1843,8 @@ namespace AirportInformationSystem.AirportDataBaseDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Идентификатор_самолёта));
             }
-            if ((Дата_отправки.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(Дата_отправки.Value));
+            if ((Дата_отправления.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(Дата_отправления.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
@@ -1855,17 +1855,17 @@ namespace AirportInformationSystem.AirportDataBaseDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((Пункты_посадки == null)) {
+            if ((Посадки == null)) {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Пункты_посадки));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Посадки));
             }
-            if ((Пункт_назначения == null)) {
+            if ((Назначение == null)) {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Пункт_назначения));
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Назначение));
             }
             if ((Стоимость_билета.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[6].Value = ((decimal)(Стоимость_билета.Value));
@@ -1893,7 +1893,7 @@ namespace AirportInformationSystem.AirportDataBaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int Номер_рейса, string Идентификатор_самолёта, global::System.Nullable<global::System.DateTime> Дата_отправки, global::System.Nullable<global::System.DateTime> Дата_прибытия, string Пункты_посадки, string Пункт_назначения, global::System.Nullable<decimal> Стоимость_билета, int Original_Номер_рейса, string Original_Идентификатор_самолёта, global::System.Nullable<global::System.DateTime> Original_Дата_отправки, global::System.Nullable<global::System.DateTime> Original_Дата_прибытия, string Original_Пункты_посадки, string Original_Пункт_назначения, global::System.Nullable<decimal> Original_Стоимость_билета) {
+        public virtual int Update(int Номер_рейса, string Идентификатор_самолёта, global::System.Nullable<global::System.DateTime> Дата_отправления, global::System.Nullable<global::System.DateTime> Дата_прибытия, string Посадки, string Назначение, global::System.Nullable<decimal> Стоимость_билета, int Original_Номер_рейса, string Original_Идентификатор_самолёта, global::System.Nullable<global::System.DateTime> Original_Дата_отправления, global::System.Nullable<global::System.DateTime> Original_Дата_прибытия, string Original_Посадки, string Original_Назначение, global::System.Nullable<decimal> Original_Стоимость_билета) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Номер_рейса));
             if ((Идентификатор_самолёта == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -1901,8 +1901,8 @@ namespace AirportInformationSystem.AirportDataBaseDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Идентификатор_самолёта));
             }
-            if ((Дата_отправки.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(Дата_отправки.Value));
+            if ((Дата_отправления.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(Дата_отправления.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
@@ -1913,17 +1913,17 @@ namespace AirportInformationSystem.AirportDataBaseDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((Пункты_посадки == null)) {
+            if ((Посадки == null)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Пункты_посадки));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Посадки));
             }
-            if ((Пункт_назначения == null)) {
+            if ((Назначение == null)) {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Пункт_назначения));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Назначение));
             }
             if ((Стоимость_билета.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(Стоимость_билета.Value));
@@ -1940,9 +1940,9 @@ namespace AirportInformationSystem.AirportDataBaseDataSetTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Идентификатор_самолёта));
             }
-            if ((Original_Дата_отправки.HasValue == true)) {
+            if ((Original_Дата_отправления.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_Дата_отправки.Value));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_Дата_отправления.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
@@ -1956,21 +1956,21 @@ namespace AirportInformationSystem.AirportDataBaseDataSetTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
-            if ((Original_Пункты_посадки == null)) {
+            if ((Original_Посадки == null)) {
                 this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_Пункты_посадки));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_Посадки));
             }
-            if ((Original_Пункт_назначения == null)) {
+            if ((Original_Назначение == null)) {
                 this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_Пункт_назначения));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_Назначение));
             }
             if ((Original_Стоимость_билета.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
@@ -2000,8 +2000,8 @@ namespace AirportInformationSystem.AirportDataBaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Идентификатор_самолёта, global::System.Nullable<global::System.DateTime> Дата_отправки, global::System.Nullable<global::System.DateTime> Дата_прибытия, string Пункты_посадки, string Пункт_назначения, global::System.Nullable<decimal> Стоимость_билета, int Original_Номер_рейса, string Original_Идентификатор_самолёта, global::System.Nullable<global::System.DateTime> Original_Дата_отправки, global::System.Nullable<global::System.DateTime> Original_Дата_прибытия, string Original_Пункты_посадки, string Original_Пункт_назначения, global::System.Nullable<decimal> Original_Стоимость_билета) {
-            return this.Update(Original_Номер_рейса, Идентификатор_самолёта, Дата_отправки, Дата_прибытия, Пункты_посадки, Пункт_назначения, Стоимость_билета, Original_Номер_рейса, Original_Идентификатор_самолёта, Original_Дата_отправки, Original_Дата_прибытия, Original_Пункты_посадки, Original_Пункт_назначения, Original_Стоимость_билета);
+        public virtual int Update(string Идентификатор_самолёта, global::System.Nullable<global::System.DateTime> Дата_отправления, global::System.Nullable<global::System.DateTime> Дата_прибытия, string Посадки, string Назначение, global::System.Nullable<decimal> Стоимость_билета, int Original_Номер_рейса, string Original_Идентификатор_самолёта, global::System.Nullable<global::System.DateTime> Original_Дата_отправления, global::System.Nullable<global::System.DateTime> Original_Дата_прибытия, string Original_Посадки, string Original_Назначение, global::System.Nullable<decimal> Original_Стоимость_билета) {
+            return this.Update(Original_Номер_рейса, Идентификатор_самолёта, Дата_отправления, Дата_прибытия, Посадки, Назначение, Стоимость_билета, Original_Номер_рейса, Original_Идентификатор_самолёта, Original_Дата_отправления, Original_Дата_прибытия, Original_Посадки, Original_Назначение, Original_Стоимость_билета);
         }
     }
     

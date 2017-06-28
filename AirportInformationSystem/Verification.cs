@@ -1,0 +1,100 @@
+﻿using System;
+using System.Windows.Forms;
+using System.Text.RegularExpressions;
+
+namespace AirportInformationSystem
+{
+    /// <summary>
+    /// Инкапсулирует методы проверки текста
+    /// </summary>
+    public static class Verification
+    {
+        /// <summary>
+        /// Изменяет значение свойства Text элемента управления TextBox,
+        /// оставляя только символы, которые будут представлять натуральное число
+        /// </summary>
+        /// <param name="textBox"></param>
+        public static void FilterInt(ref TextBox textBox)
+        {
+            string text = textBox.Text;
+            int cursorPosition = textBox.SelectionStart;
+            int deletedSymbols = 0;
+
+            // удаление из текста всех символов, кроме десятичных цифр
+            text = Regex.Replace(text, @"[^\d]", (Match match) => { deletedSymbols++; return string.Empty; });
+            textBox.Text = text;
+            textBox.SelectionStart = cursorPosition - deletedSymbols;
+            textBox.Modified = false;
+        }
+
+        /// <summary>
+        /// Изменяет значение свойства Text элемента управления TextBox,
+        /// оставляя только символы, которые будут представлять натуральное или дробное число
+        /// </summary>
+        /// <param name="textBox">передаваемый по ссылке элемент управления TextBox</param>
+        public static void FilterDouble(ref TextBox textBox)
+        {
+            string text = textBox.Text;
+            int cursorPosition = textBox.SelectionStart;
+            int deletedSymbols = 0;
+
+            // удаление из текста всех символов, кроме десятичных цифр и запятых
+            text = Regex.Replace(text, @"[^\d | \,]", (Match match) => { deletedSymbols++; return string.Empty; });
+
+            bool textHasComma = false;
+
+            // Делегат, указывающий на метод, который будет
+            // вызываться при каждом обнаружении запятой в тексте.
+            // Возвращает заменяющую строку
+            MatchEvaluator myEvaluator = delegate (Match match)
+            {
+                if (!textHasComma)
+                {
+                    textHasComma = true;
+                    return ",";
+                }
+                else
+                {
+                    deletedSymbols++;
+                    return string.Empty;
+                }
+            };
+
+            // Удаление из текста всех запятых, кроме первой
+            text = Regex.Replace(text, @"\,", myEvaluator);
+
+            textBox.Text = text;
+            textBox.SelectionStart = cursorPosition - deletedSymbols;
+            textBox.Modified = false;
+        }
+
+        /// <summary>
+        /// Проверяет текстовое представление даты со временем,
+        /// отображая сообщение об ошибке при неправильном формате
+        /// </summary>
+        /// <param name="verifiableText">Проверяемый текст</param>
+        /// <param name="variable">Переменная, в которую конвертируется дата и время из текстового представления</param>
+        /// <param name="name">Имя проверяемого значения в сообщении об ошибке</param>
+        /// <returns></returns>
+        public static bool CheckDateTime(string verifiableText, ref object variable, string name)
+        {
+            if (verifiableText == "  .  .       :")
+            {
+                variable = null;
+            }
+            else
+            {
+                try
+                {
+                    variable = Convert.ToDateTime(verifiableText);
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show(string.Format("{0} имеет неправильный формат", name), "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+}
